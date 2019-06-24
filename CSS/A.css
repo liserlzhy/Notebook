@@ -2,14 +2,29 @@
     margin:0px;
     padding:0px;
 }
-body{
+/*body{
 	text-align:center;
 	margin:0;
 	padding:0;
 	background-color:#cce8cf;
 	font-size:14px;
 	font-family: PingFangSC-Regular, Verdana, Arial, 微软雅黑, 宋体;
-	}
+	}*/
+
+body{
+    width:100vw;
+    height:100vh;
+
+    background-color:rgba(0,0,0,0.5);
+    background:url(../IMAGE/wallhaven-74942.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:right;
+    background-size:cover;
+    font-family: PingFangSC-Regular, Verdana, Arial, 微软雅黑, 宋体;
+
+}
+
 h1 {
     display: block;
     margin-top:10px;
@@ -19,7 +34,7 @@ h1 {
 hr{margin:30px 0 30px 0;}
 tr th{font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;text-align:left;background-color:#75a775;color:#ffffff;}
 table,th,td{border:1px #75a775 solid;padding:7px 0 7px 3px;word-spacing:4px;}
-table{width:818px;border-collapse:collapse;background-color:#eaeaef;margin:0;}
+table{width:auto;border-collapse:collapse;background-color:#eaeaef;margin:0;}
 .note{font-weight:bold;color:#d40808;}
 .shrink{width:30%;height:30%;}
 
@@ -33,18 +48,18 @@ table{width:818px;border-collapse:collapse;background-color:#eaeaef;margin:0;}
 }
 ul{margin:0;padding:0;}
 a{color:#000000;}
-#header{height:80px;border-bottom:2px #0a340a solid;}
+#header{height:80px;color:#fff;text-align:left;font-weight:bold;font-size:40px;line-height:80px;text-shadow:3px 2px 5px #000;border-bottom:2px #000 solid;}
 #nav{margin:10px 0px 10px 0px;}
-#nav ul#menu{list-style-type:none;margin:5px 0 0 0;padding:0;}
-#nav ul#menu li{float:left;padding:5px;text-align:center;background-color: #3f5d59;}
-#nav ul#menu li:hover{background: #111111;}
-#nav ul#menu li:hover a{color: #e62a2a;}
-#nav ul#menu li a{display:block;height:20px;padding:5px;font-size:16px;color:#ffffff;text-decoration:none;}
+#nav ul#menu{list-style-type:none;margin:5px 0 0 0;padding:0;background-color:#000;border:1px solid #fff;}
+#nav ul#menu li{float:left;padding:5px;text-align:center;background-color: #000;margin-right:10px;}
+#nav ul#menu li:hover{background: #fff;}
+#nav ul#menu li:hover a{color: #000;}
+#nav ul#menu li a{display:block;height:20px;padding:5px;font-size:16px;color:#fff;text-decoration:none;}
 #nav ul#menu:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
-#nav ul#menu .nav_current{background-color: #111111;}
-#nav ul#menu li.nav_current a{color: #e62a2a;}
+#nav ul#menu .nav_current{background-color: #fff;}
+#nav ul#menu li.nav_current a{color: #000;}
 
-#content #catalog,#section{margin:5px 0 20px 0;float:left;}
+#content #catalog,#section{box-sizing:border-box;margin:5px 0 20px 0;float:left;}
 #content #catalog h2{
 	font-size: 14px;
     color: rgb(0, 0, 0);
@@ -52,14 +67,14 @@ a{color:#000000;}
     font-family: 微软雅黑;
     margin: 0px;
     padding: 10px 0 5px 8px;}
-#content #catalog{background-color:#eaeaef;width:160px;border:1px #ccdadd solid;border-top:30px #9ab9a7 solid;}
+#content #catalog{background: rgba(255,255,255,0.7);;width:15%;border:1px #ccdadd solid;border-top:30px #000 solid;margin:0;}
 #content #catalog ul a:link{display:block;width:auto;font-size:12px;padding:3px 0 3px 13px;text-decoration:none;}
 #content #catalog ul a:active,li.current a{background-color: #e62a2a;color:white;}
 #content #catalog ul li{list-style:none;text-align:left;}
 #content #catalog ul li:hover{background-color:#9bb4b9;}
 #content #catalog ul li:hover a{color:#ffffff;}
 
-#content #section{margin:0 0 0 20px;width:818px;}
+#content #section{margin:0 0 0 5px;width:calc(85% - 5px);background: rgba(255,255,255,0.7);padding:0 5px;}
 #content #section>h3{font-size: 15px;margin:10px 0px 10px 0px;}
 #content #section h2{font-size: 18px;color: #3f3f3f;margin:15px 0px 15px 0px;}
 #content #section p{line-height:20px;text-indent:2em;margin:5px 0px 5px 0px;}

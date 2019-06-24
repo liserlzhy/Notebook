@@ -4,110 +4,110 @@
 		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
 	</head>
 	<body>
-	<div id="wrapper">
-		<div id="header">
-			<img src="../../IMAGE/logo.png"/>
-		</div>
-		<div id="nav">
-			<ul id="menu">
-				<li>
-					<a href="../Unity3d/Unity1_1.html">Unity3d</a>
-				</li>
-				<li class="nav_current">
-					<a href="../Arduino/Arduino1_1.html">Arduino</a>
-				</li>
-				<li>
-					<a href="../HTML/Html1_1.html">HTML</a>
-				</li>
-				<li>
-					<a href="../CSS/CSS1_1.html">CSS</a>
-				</li>
-				<li>
-					<a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
-				</li>
-				<li>
-					<a href="../jQuery/jQuery1_1.html">jQuery</a>
-				</li>
-				<li>
-					<a href="../SQL/SQL1_1.html">SQL</a>
-				</li>
-				<li>
-					<a href="../DOS/DOS.html">DOS</a>
-				</li>
-			</ul>
-		</div>
-		<div id="content">
-			<div id="catalog">
+    <div id="wrapper">
+        <div id="header">
+            My NoteBook
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
 
-				<h2>Arduino Note</h2>
-				<ul>
-					<li>
-						<a href="Arduino1_1.html">
-							Arduino 笔记
-						</a>
-					</li>
-					<li>
-						<a href="Arduino1_2.html">
-							电子元器件
-						</a>
-					</li>
-					<li>
-						<a href="Arduino1_3.html">
-							代码小结
-						</a>
-					</li>
-				</ul>
-				<h2>Arduino 智能小车</h2>
-				<ul>
-					<li>
-						<a href="Arduino2_1.html">
-							Arduino小车 测试篇
-						</a>
-					</li>
-					<li class="current">
-						<a href="Arduino2_2.html">
-							Arduino小车 蓝牙篇
-						</a>
-					</li>
-					<li>
-						<a href="Arduino2_3.html">
-							Arduino小车 测速篇
-						</a>
-					</li>
-					<li>
-						<a href="Arduino2_4.html">
-							Arduino小车 调速篇
-						</a>
-					</li>
-					<li>
-						<a href="Arduino2_5.html">
-							Arduino小车 避障篇
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div id="section">
-				<h1>Arduino 智能小车————蓝牙篇</h1>
-				<h2>蓝牙模块</h2>
-				<p>蓝牙（ Bluetooth® ）：是一种无线技术标准，可实现固定设备、移动设备和楼宇个人域网之间的短距离数据交换（使用2.4—2.485GHz的ISM波段的UHF无线电波）。</p>
-				<p>
-					我们在此使用的蓝牙模块(HC-05)已经在内部实现了蓝牙协议，不用我们再去自己开发调试协议。这类模块一般都是借助于串口协议通信，因此我们只需借助串口将我们需要发送的数据发送给蓝牙模块，蓝牙模块会自动将数据通过蓝牙协议发送给配对好的蓝牙设备。 </p>
-				<img src="../../IMAGE/lanya.png"/>
-				<h2>串口通信</h2>
-				<p>由于要借助串口实现蓝牙通信功能，所以我们在此要先了解下Arduino的串口通信。</p>
-				<p>Arduino
-					UNO开发板上的串口为0->RX，1->TX,在开发板内部也已经配置好了串口的功能，我们只需调用函数借口即可。以下列出串口通信里面常用的函数，并加以简单解释，详细用法可在用到时自行查询。</p>
-				<h2>蓝牙模块连接</h2>
-				<ul>
-					<li><span class="note">TX：</span>接Arduino UNO开发板”RX”引脚</li>
-					<li><span class="note">RX：</span>接Arduino UNO开发板”TX”引脚</li>
-					<li><span class="note">GND：</span>接Arduino UNO开发板”GND”引脚</li>
-					<li><span class="note">VCC：</span>接Arduino UNO开发板”5V”或”3.3V”引脚</li>
-				</ul>
-				<h2>手机蓝牙助手</h2>
-				<p>
-					想实现手机蓝牙遥控小车，手机APP是必不可少的，目前网上有很多蓝牙串口助手，省去了我们自己写APP的时间，当然如果朋友你有能力或者想自己DIY的话也可以尝试自己写APP，在这里我推荐大家用这款手机蓝牙助手（百度上搜手机蓝牙串口助手就可以搜到，挺好用的） </p>
-				<pre>#define STOP      0
+                <h2>Arduino Note</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino1_1.html">
+                            Arduino 笔记
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_2.html">
+                            电子元器件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_3.html">
+                            代码小结
+                        </a>
+                    </li>
+                </ul>
+                <h2>Arduino 智能小车</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino2_1.html">
+                            Arduino小车 测试篇
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="Arduino2_2.html">
+                            Arduino小车 蓝牙篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_3.html">
+                            Arduino小车 测速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_4.html">
+                            Arduino小车 调速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_5.html">
+                            Arduino小车 避障篇
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>Arduino 智能小车————蓝牙篇</h1>
+                <h2>蓝牙模块</h2>
+                <p>蓝牙（ Bluetooth® ）：是一种无线技术标准，可实现固定设备、移动设备和楼宇个人域网之间的短距离数据交换（使用2.4—2.485GHz的ISM波段的UHF无线电波）。</p>
+                <p>
+                    我们在此使用的蓝牙模块(HC-05)已经在内部实现了蓝牙协议，不用我们再去自己开发调试协议。这类模块一般都是借助于串口协议通信，因此我们只需借助串口将我们需要发送的数据发送给蓝牙模块，蓝牙模块会自动将数据通过蓝牙协议发送给配对好的蓝牙设备。 </p>
+                <img src="../../IMAGE/lanya.png"/>
+                <h2>串口通信</h2>
+                <p>由于要借助串口实现蓝牙通信功能，所以我们在此要先了解下Arduino的串口通信。</p>
+                <p>Arduino
+                    UNO开发板上的串口为0->RX，1->TX,在开发板内部也已经配置好了串口的功能，我们只需调用函数借口即可。以下列出串口通信里面常用的函数，并加以简单解释，详细用法可在用到时自行查询。</p>
+                <h2>蓝牙模块连接</h2>
+                <ul>
+                    <li><span class="note">TX：</span>接Arduino UNO开发板”RX”引脚</li>
+                    <li><span class="note">RX：</span>接Arduino UNO开发板”TX”引脚</li>
+                    <li><span class="note">GND：</span>接Arduino UNO开发板”GND”引脚</li>
+                    <li><span class="note">VCC：</span>接Arduino UNO开发板”5V”或”3.3V”引脚</li>
+                </ul>
+                <h2>手机蓝牙助手</h2>
+                <p>
+                    想实现手机蓝牙遥控小车，手机APP是必不可少的，目前网上有很多蓝牙串口助手，省去了我们自己写APP的时间，当然如果朋友你有能力或者想自己DIY的话也可以尝试自己写APP，在这里我推荐大家用这款手机蓝牙助手（百度上搜手机蓝牙串口助手就可以搜到，挺好用的） </p>
+                <pre>#define STOP      0
 #define FORWARD   1
 #define BACKWARD  2
 #define TURNLEFT  3
@@ -178,24 +178,24 @@ void motorRun(int cmd)
       digitalWrite(rightMotor2, LOW);
   }
 }</pre>
-				<h2>代码详解</h2>
-				<p>串口初始化函数，想要通过串口的库函数对串口进行操作，必须在void set_up()函数中对其进行初始化。</p>
-				<pre>Serial.begin(9600);</pre>
-				<p>在void loop()函数内，加入了检测串口接收内容的函数，并将接收到的命令输入到 void motorRun(int cmd)函数中控制小车运动。</p>
-				<pre>if(Serial.available()>0)
+                <h2>代码详解</h2>
+                <p>串口初始化函数，想要通过串口的库函数对串口进行操作，必须在void set_up()函数中对其进行初始化。</p>
+                <pre>Serial.begin(9600);</pre>
+                <p>在void loop()函数内，加入了检测串口接收内容的函数，并将接收到的命令输入到 void motorRun(int cmd)函数中控制小车运动。</p>
+                <pre>if(Serial.available()>0)
   {
     char cmd = Serial.read();
 
     Serial.print(cmd);
     motorRun(cmd);
   } </pre>
-			</div>
+            </div>
 
-		</div>
+        </div>
 
-		<div id="footer">
-		</div>
-	</div>
+        <div id="footer">
+        </div>
+    </div>
 		
 	
 	</body>

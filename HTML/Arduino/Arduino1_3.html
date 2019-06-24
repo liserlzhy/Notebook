@@ -4,107 +4,107 @@
 		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
 	</head>
 	<body>
-	<div id="wrapper">
-		<div id="header">
-			<img src="../../IMAGE/logo.png"/>
-		</div>
-		<div id="nav">
-			<ul id="menu">
-				<li>
-					<a href="../Unity3d/Unity1_1.html">Unity3d</a>
-				</li>
-				<li class="nav_current">
-					<a href="../Arduino/Arduino1_1.html">Arduino</a>
-				</li>
-				<li>
-					<a href="../HTML/Html1_1.html">HTML</a>
-				</li>
-				<li>
-					<a href="../CSS/CSS1_1.html">CSS</a>
-				</li>
-				<li>
-					<a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
-				</li>
-				<li>
-					<a href="../jQuery/jQuery1_1.html">jQuery</a>
-				</li>
-				<li>
-					<a href="../SQL/SQL1_1.html">SQL</a>
-				</li>
-				<li>
-					<a href="../DOS/DOS.html">DOS</a>
-				</li>
-			</ul>
-		</div>
-		<div id="content">
-			<div id="catalog">
-				<h2>Arduino Note</h2>
-				<ul>
-					<li>
-						<a href="Arduino1_1.html">
-							Arduino 笔记
-						</a>
-					</li>
-					<li>
-						<a href="Arduino1_2.html">
-							电子元器件
-						</a>
-					</li>
-					<li class="current">
-						<a href="Arduino1_3.html">
-							代码小结
-						</a>
-					</li>
-				</ul>
-				<h2>Arduino 智能小车</h2>
-				<ul>
-					<li>
-						<a href="Arduino2_1.html">
-							Arduino小车 测试篇
-						</a>
-					</li>
-					<li>
-						<a href="Arduino2_2.html">
-							Arduino小车 蓝牙篇
-						</a>
-					</li>
-					<li>
-						<a href="Arduino2_3.html">
-							Arduino小车 测速篇
-						</a>
-					</li>
-					<li>
-						<a href="Arduino2_4.html">
-							Arduino小车 调速篇
-						</a>
-					</li>
-					<li>
-						<a href="Arduino2_5.html">
-							Arduino小车 避障篇
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div id="section">
-				<h1>代码小结</h1>
-				<hr/>
-				<h3>setup()</h3>
-				<p>setup 在程序流程中只会执行一次，所以用于定义所有需要设定、初始化的参数和函数，或是引脚功能的指定，都会在这部分先定义。</p>
-				<h3>loop()</h3>
-				<p>loop()是主程序的执行内容，只要电源不中断，函数内的程序就会一直执行。</p>
-				<h3>pinMode(pin,mode)</h3>
-				<p>这个函数主要是用于数字引脚（Digital Pin）在输出、输入的时候，决定要采用哪种功能，第一个参数表示要选择的引脚，有 0~13 可以选择，而第二个参数可以选择 INPUT 或是 OUTPUT
-					表示不同模式。</p>
-				<hr/>
-				<h2>时间函数</h2>
-				<h3>(1) millis()</h3>
-				<p>这个函数的主要功能是回传一个时间常数，此常数的开始时间为单片机系统开始执行程序的时间，而这个数值的数据型态是 unsigned long，单位为 ms（milliseconds）。</p>
-				<h3>(2) micros()</h3>
-				<p>回传的时间常数单位是 μs（microseconds），数据型态一样是 unsigned long，极限值约为 70min。需要特别注意，这个函数在 16MHz 振荡器的 Arduino 中以 4
-					的倍数呈现，而在 8MHz 振荡器的 Arduino 中则以 8 的倍数呈现。</p>
-				<h3>(3) delay()</h3>
-				<p>前面提的两个函数都是回传当下的时间，假如想让程序停留在某一个状态一阵子后再继续执行，则必须使用 delay()这个函数，函数内填入想要停留的时间，单位是 ms。</p>
-				<pre>unsigned long Time;
+    <div id="wrapper">
+        <div id="header">
+            My NoteBook
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>Arduino Note</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino1_1.html">
+                            Arduino 笔记
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_2.html">
+                            电子元器件
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="Arduino1_3.html">
+                            代码小结
+                        </a>
+                    </li>
+                </ul>
+                <h2>Arduino 智能小车</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino2_1.html">
+                            Arduino小车 测试篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_2.html">
+                            Arduino小车 蓝牙篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_3.html">
+                            Arduino小车 测速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_4.html">
+                            Arduino小车 调速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_5.html">
+                            Arduino小车 避障篇
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>代码小结</h1>
+                <hr/>
+                <h3>setup()</h3>
+                <p>setup 在程序流程中只会执行一次，所以用于定义所有需要设定、初始化的参数和函数，或是引脚功能的指定，都会在这部分先定义。</p>
+                <h3>loop()</h3>
+                <p>loop()是主程序的执行内容，只要电源不中断，函数内的程序就会一直执行。</p>
+                <h3>pinMode(pin,mode)</h3>
+                <p>这个函数主要是用于数字引脚（Digital Pin）在输出、输入的时候，决定要采用哪种功能，第一个参数表示要选择的引脚，有 0~13 可以选择，而第二个参数可以选择 INPUT 或是 OUTPUT
+                    表示不同模式。</p>
+                <hr/>
+                <h2>时间函数</h2>
+                <h3>(1) millis()</h3>
+                <p>这个函数的主要功能是回传一个时间常数，此常数的开始时间为单片机系统开始执行程序的时间，而这个数值的数据型态是 unsigned long，单位为 ms（milliseconds）。</p>
+                <h3>(2) micros()</h3>
+                <p>回传的时间常数单位是 μs（microseconds），数据型态一样是 unsigned long，极限值约为 70min。需要特别注意，这个函数在 16MHz 振荡器的 Arduino 中以 4
+                    的倍数呈现，而在 8MHz 振荡器的 Arduino 中则以 8 的倍数呈现。</p>
+                <h3>(3) delay()</h3>
+                <p>前面提的两个函数都是回传当下的时间，假如想让程序停留在某一个状态一阵子后再继续执行，则必须使用 delay()这个函数，函数内填入想要停留的时间，单位是 ms。</p>
+                <pre>unsigned long Time;
 void setup()
 {
   Serial.begin(9600);   <span class="annotation">//设定串行端口通信速率</span>
@@ -114,9 +114,9 @@ void loop()
   Time = millis();      <span class="annotation">//取得目前系统时间</span>
   Serial.println(time); <span class="annotation">//输出取得的时间</span>
 }</pre>
-				<hr/>
-				<h2>输入/输出数据</h2>
-				<pre>void setup ( )
+                <hr/>
+                <h2>输入/输出数据</h2>
+                <pre>void setup ( )
 {
   Serial.begin(9600);			<span class="annotation">//串行端口功能使用初始化</span>
 }
@@ -141,9 +141,9 @@ void loop()
   
   delay(1000);
 }</pre>
-				<p>因为 RS-232 是一种双向沟通的模式，所以除了由 Arduino 输出至计算机以外，也可以由计算机发送指令到 Arduino 中，让 Arduino
-					判断接收到的字符串，以此来决定该做什么事情。</p>
-				<pre>void setup()
+                <p>因为 RS-232 是一种双向沟通的模式，所以除了由 Arduino 输出至计算机以外，也可以由计算机发送指令到 Arduino 中，让 Arduino
+                    判断接收到的字符串，以此来决定该做什么事情。</p>
+                <pre>void setup()
 {
   Serial.begin(9600);	    <span class="annotation">//串行端口功能使用初始化</span>
 }
@@ -159,13 +159,13 @@ void loop()
   delay(1000);
 }</pre>
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 
-		<div id="footer">
-		</div>
-	</div>
+        <div id="footer">
+        </div>
+    </div>
 		
 	
 	</body>
