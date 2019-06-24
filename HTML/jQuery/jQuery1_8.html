@@ -1,0 +1,504 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <script src="../../JS/jquery-3.3.1.min.js"></script>
+        <script src="../../JS/jquery-ui.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../CSS/jquery-ui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li class="current">
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>jQuery UI</h1>
+                <hr/>
+                <h2>认识 jQuery UI</h2>
+                <h3>1、jQuery UI:</h3>
+                <p>是以 jQuery 为基础的 JavaScript 网页用户界面的开源库。包含底层用户交互、动画、特性和可更换的可视控件。我们可以直接用它来构建具有很好交互性的 web 应用程序。</p>
+                <p>包含了许多维持状态的小部件 (Widget)，因此，它与典型的 jQuery 插件使用模式略有不同。所有的 jQuery UI
+                    小部件使用相同的模式，所以，只要你学会使用其中一个，您就知道如何使用其他的小部件。</p>
+                <h3>2、浏览器</h3>
+                <p>IE 6.0+，Firefox 3+，Safari 3.1+，Opera 9.6+ 和 Google Chrome</p>
+                <h3>3、jQuery UI 主要分为 3 个部分: 交互、小部件和效果库。</h3>
+                <p>交互: 交互部件是一些与鼠标交互相关的内容，包括 Draggable，Droppable，Resizable，Selectable 和 Sortable等。</p>
+                <p>小部件: 主要是一些界面的扩展，包括 AutoComplete，ColorPicker，Dialog，Slider，Tabs，ProgressBar，Spinner等</p>
+                <p>效果: 用于提供丰富的动画效果，包括: Add Class、Color Animation、Toggle等</p>
+                <span class="note">参考:<a href="https://jqueryui.com">https://jqueryui.com</a></span>
+                <hr/>
+                <h2>jQuery UI Interactions</h2>
+                Draggable，Droppable，Resizable，selectable，sortable
+                <h3>实例:</h3>
+                <div class="demoParent">
+                        <pre class="code">&lt;script src="../../JS/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="../../JS/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../CSS/jquery-ui.min.css"/&gt;
+&lt;script&gt;
+$(document).ready(function () {
+    $("#ui_btn1").<span class="gj">button</span>();
+    $("#drag_id").<span class="gj">draggable</span>().<span class="gj">resizable</span>();
+    $("#drop_id").<span class="gj">droppable</span>();<span class="annotation">/*设置可被放置*/</span>
+
+   <span class="annotation"> /*放下后触发的动作*/</span>
+    $("#drop_id").on("<span class="gj">drop</span>",function (event,ui) {
+        $("#drop_id").text("drop事件");
+        alert("hello");
+    });
+
+
+    $("#question").<span class="gj">selectable</span>();
+    $("#sort").<span class="gj">sortable</span>();
+    $("#ui_btn1").on("click",function () {
+        if($("#correct").hasClass("ui-selected")){
+            alert("Congratulation");
+        }else{
+            alert("you are wrong!");
+        }
+    });
+});
+&lt;/script&gt;
+&lt;style&gt;
+    .ui-selected{background-color: #029899;}
+&lt;/style&gt;
+
+12*12=？
+&lt;ul id="question"&gt;
+   &lt;li&gt;A. 114&lt;/li&gt;
+   &lt;li id="correct"&gt;B. 124&lt;/li&gt;
+   &lt;li&gt;C. 144&lt;/li&gt;
+&lt;/ul&gt;
+&lt;button id="ui_btn1"&gt;提交&lt;/button&gt;&lt;br/&gt;
+按从小到大排序
+&lt;ul id="sort"&gt;
+    &lt;li&gt;3222&lt;/li&gt;
+    &lt;li&gt;9882&lt;/li&gt;
+    &lt;li&gt;3232&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id="drag_id" style="width:100px;height:100px;background-color:#49fcff;"&gt;我能被拖动和改变大小&lt;/div&gt;
+&lt;div id="drop_id" style="width:200px;height:200px;background-color:#f5ff75;"&gt;把蓝框拉进我这里来&lt;/div&gt;</pre>
+                    <div class="demoPosition" style="color:#3c37b1;top:150px;">
+                        <script>
+                            $(document).ready(function () {
+                                $("#ui_btn1").button();
+                                $("#drag_id").draggable().resizable();
+                                $("#drop_id").droppable();
+                                /*设置可被放置*/
+
+                                /*放下后触发的动作*/
+                                $("#drop_id").on("drop", function (event, ui) {
+                                    $("#drop_id").text("drop事件");
+                                    alert("hello");
+                                });
+
+
+                                $("#question").selectable();
+                                $("#sort").sortable();
+                                $("#ui_btn1").on("click", function () {
+                                    if ($("#correct").hasClass("ui-selected")) {
+                                        alert("Congratulation");
+                                    } else {
+                                        alert("you are wrong!");
+                                    }
+                                });
+                            });
+                        </script>
+                        <style>
+                            .ui-selected {
+                                background-color: #029899;
+                            }
+                        </style>
+
+                        12*12=？
+                        <ul id="question">
+                            <li>A. 114</li>
+                            <li id="correct">B. 124</li>
+                            <li>C. 144</li>
+                        </ul>
+                        <button id="ui_btn1">提交</button>
+                        <br/>
+                        按从小到大排序
+                        <ul id="sort">
+                            <li>3222</li>
+                            <li>9882</li>
+                            <li>3232</li>
+                        </ul>
+                        <div id="drag_id" style="width:100px;height:100px;background-color:#49fcff;">我能被拖动和改变大小
+                        </div>
+                        <div id="drop_id" style="width:200px;height:200px;background-color:#f5ff75;">把蓝框拉进我这里来</div>
+                    </div>
+                    <hr/>
+                    <h2>jQuery UI widgets</h2>
+                    Accordion，Autocomplete，Button，Datepicker，Dialog，progressbar，Menu({position})，slider，spinner，tabs
+                    <div>
+                            <pre class="code"> &lt;script&gt;
+    $(document).ready(function () {
+        <span class="annotation">/*Accordion--手风琴效果*/</span>
+        $("#acDiv").<span class="gj">accordion</span></span>();
+
+        <span class="annotation">/*Autocomplete--自动补全*/</span>
+        var autoSource = ["html","jQuery","CSS","Java","AJAX"];
+        $("#auCom").<span class="gj">autocomplete</span>({source:autoSource});
+
+        <span class="annotation">/*Datepicker--选择日期*/</span>
+        $("#pickDate").<span class="gj">datepicker</span>();
+
+        <span class="annotation">/*Dialog 弹出对话框*/</span>
+        $("#diaBtn").button().on("click",function () {
+            $("#diaDiv").<span class="gj">dialog</span>();
+        });
+
+        <span class="annotation">/*Progressbar--进度条*/</span>
+        pb = $("#pbDiv");
+        pb.<span class="gj">progressbar</span>({max:100});<span class="annotation">//设置进度条最大值为100</span>
+        setInterval(changepb,100);<span class="annotation">//每100毫秒执行</span>
+        var current = 0;
+        function changepb() {
+            current++;
+            if(current&gt;=100){
+                current=0;
+            }
+            pb.progressbar("option","value",current);
+        }
+
+        <span class="annotation">/*Menu--菜单*/</span>
+        $("#uiMenu").<span class="gj">menu</span>({position:{at:"left bottom"}});
+
+       <span class="annotation">/*Slider--可调节进度条*/</span>
+        slider=$("#sl");
+        slider.<span class="gj">slider</span>({
+            slide:function(event,ui) {<span class="annotation">//slide: 边拉动边改变数据。change: 拉动停止改变数据</span>
+                $("#span").text(slider.slider("option","value"));
+            }
+        });
+
+        <span class="annotation">/*spinner--数量的 + -*/</span>
+        $("#uInput").<span class="gj">spinner</span>();
+        $("#uInput").spinner("value","10");<span class="annotation">//设置默认的值为10</span>
+        $("#getSpinner").on("click",function () {
+            alert("选择的数量: "+$("#uInput").spinner("value"));
+        });
+
+        <span class="annotation">/*tab*/</span>
+        $("#tab").<span class="gj">tabs</span>();
+
+    });
+&lt;/script&gt;
+&lt;style&gt;
+    <span class="annotation">/*菜单css*/</span>
+   #uiMenu{height:23px;}
+   #uiMenu a{display:block;width:100px;}
+
+    #uiMenu .ui-menu:after{
+        content:".";
+        display:block;
+        clear:both;
+        visibility: hidden;
+        line-height: 0;
+        height:0;
+    }
+    #uiMenu&gt;.ui-menu-item{
+        display:inline-block;
+        float:left;
+        margin:0;
+        padding:0px;
+        width:auto;
+    }
+&lt;/style&gt;
+&lt;div id="acDiv" style="width:300px;"&gt;
+    &lt;h4&gt;ONE&lt;/h4&gt;
+    &lt;div&gt;&lt;p&gt;圣诞节疯狂的森林精灵适当放宽死了善良的老师的看法市劳动局&lt;/p&gt;&lt;/div&gt;
+    &lt;h4&gt;TWO&lt;/h4&gt;
+    &lt;div&gt;&lt;p&gt;的死的森林精灵适当放宽死了善良的老师的看法市劳动局&lt;/p&gt;&lt;/div&gt;
+    &lt;h4&gt;THREE&lt;/h4&gt;
+    &lt;div&gt;&lt;p&gt;节疯狂的森林精灵适当放宽死了善良的老师的看法市劳动局&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr/&gt;
+&lt;label for="auCom"&gt;autoComplete:&lt;/label&gt;
+&lt;input id="auCom" type="text" placeholder="input j to see"/&gt;
+&lt;hr/&gt;
+&lt;label for="pickDate"&gt;Date:&lt;/label&gt;
+&lt;input id="pickDate" type="text"/&gt;
+&lt;hr/&gt;
+&lt;div id="diaDiv"&gt;
+    &lt;p&gt;我是一个对话框&lt;/p&gt;
+&lt;/div&gt;
+&lt;a id="diaBtn"&gt;对话框&lt;/a&gt;
+&lt;hr/&gt;
+&lt;div id="pbDiv" style="width:300px;"&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;ul id="uiMenu"&gt;
+    &lt;li&gt;
+        &lt;a&gt;Chacter 1&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a&gt;one&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;two&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;three&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a&gt;Chacter 1&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a&gt;one&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;two&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;three&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr/&gt;
+&lt;span id="span"&gt;0&lt;/span&gt;
+&lt;div id="sl"&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;input id="uInput"/&gt;
+&lt;button id="getSpinner"&gt;getValue&lt;/button&gt;
+&lt;hr/&gt;
+&lt;div id="tab"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#tab1"&gt;ONE&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab2"&gt;TWO&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab3"&gt;THREE&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div id="tab1"&gt;
+        nosdfdsfdsfsdfdsfdfdfsd
+    &lt;/div&gt;
+    &lt;div id="tab2"&gt;
+        sldfjsfjsdlfjsldjfdsljkds
+    &lt;/div&gt;
+    &lt;div id="tab3"&gt;
+        sldfsdfadfar223131ssdf11ds
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                        <hr/>
+                        <h3>效果图</h3>
+                        <div class="hrh3">
+                            <script>
+                                $(document).ready(function () {
+                                    /*Accordion--手风琴效果*/
+                                    $("#acDiv").accordion();
+
+                                    /*Autocomplete--自动补全*/
+                                    var autoSource = ["html", "jQuery", "CSS", "Java", "AJAX"];
+                                    $("#auCom").autocomplete({source: autoSource});
+
+                                    /*Datepicker--选择日期*/
+                                    $("#pickDate").datepicker();
+
+                                    /*Dialog 弹出对话框*/
+                                    $("#diaBtn").button().on("click", function () {
+                                        $("#diaDiv").dialog();
+                                    });
+
+                                    /*Progressbar--进度条*/
+                                    pb = $("#pbDiv");
+                                    pb.progressbar({max: 100});//设置进度条最大值为100
+                                    setInterval(changepb, 100);//每100毫秒执行
+                                    var current = 0;
+
+                                    function changepb() {
+                                        current++;
+                                        if (current >= 100) {
+                                            current = 0;
+                                        }
+                                        pb.progressbar("option", "value", current);
+                                    }
+
+                                    /*Menu--菜单*/
+                                    $("#uiMenu").menu({position: {at: "left bottom"}});
+
+                                    /*Slider--可调节进度条*/
+                                    slider = $("#sl");
+                                    slider.slider({
+                                        slide: function (event, ui) {//slide: 边拉动边改变数据。change: 拉动停止改变数据
+                                            $("#span").text(slider.slider("option", "value"));
+                                        }
+                                    });
+
+                                    /*spinner--数量的 + -*/
+                                    $("#uInput").spinner();
+                                    $("#uInput").spinner("value", "10");//设置默认的值为10
+                                    $("#getSpinner").on("click", function () {
+                                        alert("选择的数量: " + $("#uInput").spinner("value"));
+                                    });
+
+                                    /*tab*/
+                                    $("#tab").tabs();
+
+                                });
+                            </script>
+                            <style>
+                                /*菜单css*/
+                                #uiMenu {
+                                    height: 23px;
+                                }
+
+                                #uiMenu a {
+                                    display: block;
+                                    width: 100px;
+                                }
+
+                                #uiMenu .ui-menu:after {
+                                    content: ".";
+                                    display: block;
+                                    clear: both;
+                                    visibility: hidden;
+                                    line-height: 0;
+                                    height: 0;
+                                }
+
+                                #uiMenu > .ui-menu-item {
+                                    display: inline-block;
+                                    float: left;
+                                    margin: 0;
+                                    padding: 0px;
+                                    width: auto;
+                                }
+
+                            </style>
+                            <h3>Accordion</h3>
+                            <hr/>
+                            <div id="acDiv" style="width:300px;">
+                                <h4>ONE</h4>
+                                <div><p>圣诞节疯狂的森林精灵适当放宽死了善良的老师的看法市劳动局</p></div>
+                                <h4>TWO</h4>
+                                <div><p>的死的森林精灵适当放宽死了善良的老师的看法市劳动局</p></div>
+                                <h4>THREE</h4>
+                                <div><p>节疯狂的森林精灵适当放宽死了善良的老师的看法市劳动局</p></div>
+                            </div>
+                            <h3>Autocomplete</h3>
+                            <hr/>
+                            <label for="auCom">autoComplete:</label>
+                            <input id="auCom" type="text" placeholder="input j to see"/>
+                            <h3>Datapicker</h3>
+                            <hr/>
+                            <label for="pickDate">Date:</label>
+                            <input id="pickDate" type="text"/>
+                            <h3>Dialog</h3>
+                            <hr/>
+                            <div id="diaDiv">
+                                <p>我是一个对话框</p>
+                            </div>
+                            <a id="diaBtn">对话框</a>
+                            <h3>Progressbar</h3>
+                            <hr/>
+                            <div id="pbDiv" style="width:300px;"></div>
+                            <h3>Menu</h3>
+                            <hr/>
+                            <ul id="uiMenu">
+                                <li>
+                                    <a>Chacter 1</a>
+                                    <ul>
+                                        <li><a>one</a></li>
+                                        <li><a>two</a></li>
+                                        <li><a>three</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>Chacter 1</a>
+                                    <ul>
+                                        <li><a>one</a></li>
+                                        <li><a>two</a></li>
+                                        <li><a>three</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <h3>Slider</h3>
+                            <hr/>
+                            <span id="span">0</span>
+                            <div id="sl"></div>
+                            <h3>Spinner</h3>
+                            <hr/>
+                            <input id="uInput"/>
+                            <button id="getSpinner">getValue</button>
+                            <h3>Tabs</h3>
+                            <hr/>
+                            <div id="tab">
+                                <ul>
+                                    <li><a href="#tab1">ONE</a></li>
+                                    <li><a href="#tab2">TWO</a></li>
+                                    <li><a href="#tab3">THREE</a></li>
+                                </ul>
+                                <div id="tab1">
+                                    nosdfdsfdsfsdfdsfdfdfsd
+                                </div>
+                                <div id="tab2">
+                                    sldfjsfjsdlfjsldjfdsljkds
+                                </div>
+                                <div id="tab3">
+                                    sldfsdfadfar223131ssdf11ds
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

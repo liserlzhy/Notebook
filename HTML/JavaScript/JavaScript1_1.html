@@ -1,0 +1,184 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>JavaScript</h2>
+                <ul>
+                    <li class="current">
+                        <a href="JavaScript1_1.html">
+                            JavaScript 基础
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_2.html">
+                            异常捕获
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_3.html">
+                            DOM
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_4.html">
+                            JS 事件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_5.html">
+                            JS 对象
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_6.html">
+                            JS 面向对象
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>
+                    JavaScript
+                </h1>
+                <hr/>
+                <h2>JavaScript 介绍</h2>
+                <ol>
+                    <li>JavaScript 是互联网上最流行的脚本语言，这门语言可用于 web 和 HTML，更可广泛用于服务器、pc端、移动端。</li>
+                    <li>JavaScript 脚本语言:
+                        <p>JavaScript 是一种轻量级的编程语言</p>
+                        <p>JavaScript 是可插入 HTML 页面的编程代码</p>
+                        <p>JavaScript 插入 HTML 页面后，可由所有的浏览器执行</p>
+                    </li>
+                    <li>JavaScript 用法:
+                        <p> HTML 中的脚本必须位于 &lt;script&gt;&lt;/script&gt; 标签之间</p>
+                        <p>脚本可被放置在 HTML 页面的 &lt;body&gt;和 &lt;head&gt; 部分中</p>
+                    </li>
+                    <li>JavaScript 使用限制:
+                        <p>在 HTML 中，不限制脚本数量</p>
+                        <p>通常会把脚本放置于 &lt;head&gt; 标签中，以不干扰页面内容。</p>
+                    </li>
+                    <li>标识符:
+                        <p>JavaScript 标识符必须以字母、下划线或美元符号开始</p>
+                    </li>
+                    <li>外部引用脚本:
+                        <p>&lt;script src="X.js"&gt;&lt;/script&gt;</p>
+                    </li>
+                </ol>
+                <hr/>
+                <h2>文档输出</h2>
+                <p>document.write("&lt;p&gt;this is my JavaScript&lt;/p&gt;");</p>
+                <hr/>
+                <h2>JavaScript 数组</h2>
+                <p>var st=[1,2,3,4];</p>
+                <p>var arr=new Array("hello","sdf","dsfsdfs");</p>
+                <p>var arr2=new Array(); arr2[0]=3;</p>
+                <p>任何字符串与其他类型相加结果是字符串类型</p>
+                <hr/>
+                <h2>运算符</h2>
+                <h3>三个等号</h3>
+                <p>三个等号(=== 或者 !==)必须满足类型也要相同</p>
+                <p> var i = "10";</p>
+                <p>var j = 10;</p>
+                <p>document.write(i===j); 结果为: false</p>
+                <p>document.write(i==j); 结果为: true</p>
+                <h3>三目运算符</h3>
+                <p>document.write(i>10?"i大于10":"i小于10");</p>
+                <hr/>
+                <h2>函数</h2>
+                <pre class="code">&lt;script&gt;
+    var n=10; m=10; <span class="annotation">//全局变量 任何地方都可以使用</span>
+    function demo(){
+        var i=10; <span class="annotation">//局部变量 只能在当前函数中使用</span>
+        x=10; <span class="annotation">//全局变量 当调用demo()函数之后才能使用</span>
+    }
+    demo();
+    alert(x);
+&lt;/script&gt;</pre>
+                <hr/>
+                <h2>事件</h2>
+                <table>
+                    <tr>
+                        <th>事件</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td>onClick</td>
+                        <td>单击事件</td>
+                    </tr>
+                    <tr>
+                        <td>onMouseOver</td>
+                        <td>鼠标经过事件</td>
+                    </tr>
+                    <tr>
+                        <td>onMouseOut</td>
+                        <td>鼠标移出事件</td>
+                    </tr>
+                    <tr>
+                        <td>onChange</td>
+                        <td>文本内容改变事件</td>
+                    </tr>
+                    <tr>
+                        <td>onSelect</td>
+                        <td>文本框选中事件</td>
+                    </tr>
+                    <tr>
+                        <td>onFocus</td>
+                        <td>光标聚集事件</td>
+                    </tr>
+                    <tr>
+                        <td>onBlur</td>
+                        <td>移开鼠标事件</td>
+                    </tr>
+                    <tr>
+                        <td>onLoad</td>
+                        <td>网页加载事件</td>
+                    </tr>
+                    <tr>
+                        <td>onUnload</td>
+                        <td>关闭网页事件</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

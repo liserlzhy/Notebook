@@ -1,0 +1,112 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li class="current">
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JQuery 遍历</h1>
+                <hr/>
+                <h2>向下遍历</h2>
+                children(["#id"])，find("")
+                <p>children() - 查找直接子类，参数可选</p>
+                <p>find() - 查找子孙类，参数必须要填</p>
+                例如:
+                <pre>$("div").children().css("border","5px yellow solid");
+$("div").find("ul").css("border","5px solid blue");</pre>
+                <hr/>
+                <h2>向上遍历</h2>
+                parent()，parents()，parentUntil()
+                <p>parent() - 查找直接父类，参数可选</p>
+                <p>parents() - 查找父辈类，参数可选</p>
+                <p>parentsUntil() - 间隔父类，参数可选，参数不填同 parents()</p>
+                <hr/>
+                <h2>同级遍历</h2>
+                siblings()，next()，nextAll()，nextUntil()，prev()，preAll()，preUntil()
+                <p>siblings() - 同级所有元素</p>
+                <p>next() - 同级下一个元素</p>
+                <p>nextAll() - 同级下面所有元素</p>
+                <p>nextUtil() - 向下区间</p>
+                <hr/>
+                <h2>过滤</h2>
+                first()，last()，eq()，filter()，not()
+                <p>first() - 选取同样元素的第一个</p>
+                <p>last() - 选取同样元素的最后一个</p>
+                <p>eq() - eq(0)，索引为0即为同样元素的第一个</p>
+                <p>filter() - 选取符合的</p>
+                <p>not() - 与 filter() 相反</p>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

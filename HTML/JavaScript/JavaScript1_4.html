@@ -1,0 +1,157 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>JavaScript</h2>
+                <ul>
+                    <li>
+                        <a href="JavaScript1_1.html">
+                            JavaScript 基础
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_2.html">
+                            异常捕获
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_3.html">
+                            DOM
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="JavaScript1_4.html">
+                            JS 事件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_5.html">
+                            JS 对象
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_6.html">
+                            JS 面向对象
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JS 事件</h1>
+                <hr/>
+                <h2>事件流:</h2>
+                <ol>
+                    <li>事件流:
+                        <p>描述的是在页面中接受事件的顺序</p>
+                    </li>
+                    <li>事件冒泡:
+                        <p>由最具体的元素接收，然后逐级向上传播至最不具体的元素的节点(文档)</p>
+                    </li>
+                    <li>事件捕获:
+                        <p>最不具体的节点先接收事件，而最具体的节点应该是最后接收事件</p>
+                    </li>
+                </ol>
+                <hr/>
+                <h2>事件处理</h2>
+                <ol>
+                    <li>HTML 事件处理:
+                        <p>直接添加到 HTML 结构中</p>
+                    </li>
+                    <li>DOM0级事件处理
+                        <p>把一个函数赋值给一个事件处理程序属性</p>
+                        <pre>&lt;script&gt;
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){alert("DOM0 事件处理程序1);};<span class="annotation">//会被下面的程序2覆盖掉</span>
+    btn.onclick = function(){alert("DOM0 事件处理程序2);};
+    <span class="annotation">//清除掉其 onclick 效果</span>
+    <span class="annotation">//btn.onclick = null;</span>
+&lt;/script&gt;</pre>
+                    </li>
+                    <li>DOM2级事件处理
+                        <p>addEventListener("事件名","事件处理函数","布尔值");</p>
+                        <p>true: 事件捕获</p>
+                        <p>false: 事件冒泡</p>
+                        <p>removeEventListener();</p>
+                    </li>
+                    <li>IE 事件处理程序,版本&lt;=8
+                        <p>attachEvent: btn.attachEvent("onclick",fun1);</p>
+                        <p>detachEvent</p>
+                    </li>
+                </ol>
+                <h2>事件对象</h2>
+                <ol>
+                    <li>事件对象:
+                        <p>在触发 DOM 事件的时候都会产生一个对象</p>
+                    </li>
+                    <li>事件对象 event
+                        <p>type: 获取事件类型</p>
+                        <p>target: 获取事件目标</p>
+                        <p>stopPropagation(): 阻止事件冒泡</p>
+                        <p>preventDefault(); 阻止事件默认行为</p>
+                        <pre>&lt;div id="div"&gt;
+   &lt;button id="btn"&gt;按钮&lt;/button&gt;
+   &lt;a id="aid" href="https://www.baidu.com"&gt;度娘&lt;/a&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    document.getElementById("btn").addEventListener("click",disType);
+    document.getElementById("div").addEventListener("click",disDiv);
+    document.getElementById("aid").addEventListener("click",disA);
+    function disType(event){
+        <span class="h_annotation">//alert(event.type);//弹出（click）</span>
+        alert(event.target); <span class="h_annotation">//弹出（[object HTMLButtonElement]）</span>
+        event.stopPropagation();<span class="h_annotation">//阻止事件冒泡</span>
+}
+    function disDiv() {
+        alert("div");
+    }
+    function disA() {
+        event.stopPropagation();
+        event.preventDefault();<span class="h_annotation">//此时无法跳转</span>
+    }
+&lt;/script&gt;</pre>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

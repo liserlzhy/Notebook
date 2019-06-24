@@ -1,0 +1,144 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>CSS</h2>
+                <ul>
+                    <li class="current">
+                        <a href="CSS1_1.html">
+                            选择器
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="CSS1_2.html">
+                            CSS 常用操作
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="CSS1_3.html">
+                            2D、3D转换
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>
+                    CSS 选择器
+                </h1>
+                <hr/>
+                <h3>通配符</h3>
+                <p>例如: *{}。所有</p>
+                <h3>选择器分组</h3>
+                <p>例如：h1,h2{}</p>
+                <h3>元素选择器</h3>
+                <p>最常见的选择器就是元素选择器，文档的元素就是最基本的选择器。</p>
+                <p>例如：h1{}、a{}</p>
+                <h3>类选择器</h3>
+                <ol>
+                    <li>类选择器允许以一种独立于文档元素的方式来指定样式。<p>例如: .class{}</p></li>
+                    <li>结合元素选择器<p>例如: a.class{}</p></li>
+                    <li>多类选择器<p>例如: .class.class{}。class="c_n1 c_n2";</p></li>
+                </ol>
+                <h3>ID 选择器</h3>
+                <ol>
+                    <li>ID 选择器
+                        <p>ID 选择器类似类选择器</p>
+                        <p>例如: #ID{}</p>
+                    </li>
+                    <li>类选择器
+                        <p>ID 只能在文档中使用一次，而类可以多次使用</p>
+                        <p>ID 选择器不能结合使用</p>
+                        <p>当使用 js 时，需要用到 id</p>
+                    </li>
+                </ol>
+
+
+                <h3>属性选择器</h3>
+                <ol>
+                    <li>简单属性选择:
+                        <p>例如: [title]{}</p>
+                    </li>
+                    <li>根据具体属性值选择
+                        <p>处理选择拥有某些元素，还可以进一步缩小选择范围，只选择有特定属性值的元素</p>
+                        <p>例如: a[href="http://www.baidu.com"]{}</p>
+                    </li>
+                    <li>属性和属性值必须完全匹配</li>
+                    <li>根据部分属性值选择
+                        <p>例如: [title~="title"]{}。title 中含有 title 字符的都可匹配到。~表示模糊的意思。</p>
+                    </li>
+                </ol>
+                <pre class="code">&lt;head&gt;
+    &lt;style&gt;
+        <span class="gj">[title]</span>{color:blue;}
+        <span class="gj">[title=te]</span>{color:red;}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p title="t"&gt;属性选择器&lt;/p&gt;
+    &lt;p title="te"&gt;属性和值选择器&lt;/p&gt;
+&lt;/body&gt;</pre>
+                <h3>后代、子元素、兄弟选择器</h3>
+                <ol>
+                    <li>后代选择器:
+                        <p>后代选择器可以选择作为某元素后代的元素</p>
+                        <p>例如: p strong i{}</p>
+                    </li>
+                    <li>子元素选择器
+                        <p>于后代选择器相比，子元素选择器只能选择作为某元素子元素的元素,只能选择一层。</p>
+                        <p>例如: h1>strong{}</p>
+                    </li>
+                    <li>相邻兄弟选择器
+                        <p>可选择紧接在另一个元素后的元素，且二者有相同父元素</p>
+                        <p>例如: li+li{}</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+
+
+    </body>
+</html>

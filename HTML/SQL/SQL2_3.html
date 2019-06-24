@@ -1,0 +1,162 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>SQL 基础教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL1_1.html">
+                            SQL 基础命令
+                        </a>
+                    </li>
+                </ul>
+                <h2>SQL 高级教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL2_1.html">
+                            SQL Top
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_2.html">
+                            SQL Like
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="SQL2_3.html">
+                            SQL 通配符
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_4.html">
+                            SQL In
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_5.html">
+                            SQL Between
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_6.html">
+                            SQL Alias
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_7.html">
+                            SQL JOIN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_8.html">
+                            SQL Union
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>SQL 通配符</h1>
+                <hr/>
+                <p>在搜索数据库中的数据时，SQL 通配符可以替代一个或多个字符。</p>
+                <p>SQL 通配符必须与 LIKE 运算符一起使用。</p>
+                <table class="dataintable">
+                    <tr>
+                        <th>通配符</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>替代一个或多个字符</td>
+                    </tr>
+                    <tr>
+                        <td>_</td>
+                        <td>仅替代一个字符</td>
+                    </tr>
+                    <tr>
+                        <td>[charlist]</td>
+                        <td>字符列中的任何单一字符</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>[^charlist]</p>
+                            <p>或者</p>
+                            <p>[!charlist]</p>
+                        </td>
+                        <td>不在字符列中的任何单一字符</td>
+                    </tr>
+                </table>
+                <p><span class="note">注释: </span>"%" 的使用请看上一节</p>
+
+                <hr/>
+                <h2>使用 _ 通配符</h2>
+                <h3>实例1：</h3>
+                <p>从 "Persons" 表中选取名字的第一个字符之后是 "eorge" 的人： </p>
+                <pre>SELECT * FROM Persons
+WHERE FirstName LIKE '_eorge'</pre>
+                <h3>实例2: </h3>
+                <p>从 "Persons" 表中选取的这条记录的姓氏以 "C" 开头，然后是一个任意字符，然后是 "r"，然后是任意字符，然后是 "er"：</p>
+                <pre>SELECT * FROM Persons
+WHERE LastName LIKE 'C_r_er'</pre>
+                <h2>使用 [charlist] 通配符</h2>
+                <h3>实例1:</h3>
+                <p>从 "Persons" 表中选取居住的城市以 "A" 或 "L" 或 "N" 开头的人：</p>
+                <pre>SELECT * FROM Persons
+WHERE City LIKE '[ALN]%'</pre>
+                <h3>实例2: </h3>
+                <p>从 "Persons" 表中选取居住的城市不以 "A" 或 "L" 或 "N" 开头的人：</p>
+                <pre>SELECT * FROM Persons
+WHERE City LIKE '[!ALN]%'</pre>
+                <p><span class="note">注释: </span>上面的 [charlist] 语法在 MySQL 不适用。必须以正则表达式代替，正确如下: </p>
+                <hr/>
+                <p>REGEXP 或者 RLIKE 关键字均可</p>
+                <pre>SELECT * FROM Persons WHERE City RLIKE '^[ALN]'</pre>
+                <p>如果要区别大小写，使用 binary 关键字</p>
+                <pre>SELECT * FROM Persons WHERE City REGEXP binary '^[^ALN]'</pre>
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

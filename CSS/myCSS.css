@@ -1,0 +1,32 @@
+#em_menu ul{padding:0px;margin:0px;}
+#em_menu li{list-style:none;}
+#em_menu ul>li{
+    background-image:url("../IMAGE/ku.jpg");
+    background-repeat: no-repeat;
+    background-size:100px 26px;
+}
+#em_menu ul li ul li{
+    background-image: url("../IMAGE/xku.jpg");
+    background-repeat: no-repeat;
+    background-size:100px 26px;
+}
+#em_menu ul a{display:block;width:100px;height:26px;
+    line-height:25px;
+    text-align:center;
+    text-decoration:none;
+    cursor:pointer;
+    user-select:none;
+    font-size:12px;
+}
+#em_menu ul ul{display:none;}
+#em_menu ul li>a{position:relative;color: #01b3b4;}
+#em_menu ul li>a div{
+    width:0px;height:0px;
+    border:8px solid transparent;
+    border-left-color:#02feff;
+    position:absolute;
+    left:5px;
+    top:5px;
+    box-shadow: 0 0 5px white;
+}
+#em_menu ul li ul a{color:black;}

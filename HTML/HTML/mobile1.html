@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src="../../JS/jquery.js"></script>
+    <script src="../../JS/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../CSS/jquery.mobile-1.4.5.min.css"/>
+
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h1>hello</h1>
+            <a href="mobile2.html" data-rel="dialog">首页</a>
+            <a href="#">返回</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a class="ui-btn-active" >one</a></li>
+                    <li><a>two</a></li>
+                    <li><a>three</a></li>
+                    <li><a>four</a></li>
+                    <li><a>fine</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+            <a href="#pop" data-rel="popup" data-position-to="window" data-transition="fade"><img src="../../IMAGE/butterfly.gif" style="width: 30%;"/></a>
+            <div data-role="popup" id="pop">
+                <a href="#" data-rel="back" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right ui-corner-all ui-shadow"></a>
+                <img src="../../IMAGE/butterfly.gif" style="width:150%;"/>
+            </div>
+            <select  name="select-native-1" id="select-native-1" data-iconpos="left">
+                <option value="1">ONE</option>
+                <option value="2" disabled="disabled">TWO</option>
+                <option value="3">THREE</option>
+            </select>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a class="ui-btn ui-btn-inline">controlgroup/horizontal</a>
+                <a class="ui-btn ui-btn-inline">ui-btn-inline</a>
+
+            </div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <label>
+                    <input type="checkbox" checked="checked"/>checkbox1
+                </label>
+                <label>
+                    <input type="checkbox"/>checkbox2
+                </label>
+            </fieldset>
+            <div data-role="collapsible" data-content-theme="false" >
+                <h4>展开项</h4>
+                <ul data-role="listview">
+                    <li><a>item1</a></li>
+                    <li><a>item2</a></li>
+                    <li><a>item3</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a hre="#" data-icon="grid" data-icon-position="left">好友</a></li>
+                    <li><a href="#">个人中心</a> </li>
+                    <li><a href="#">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

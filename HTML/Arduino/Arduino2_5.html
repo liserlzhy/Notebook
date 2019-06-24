@@ -1,0 +1,417 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>Arduino Note</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino1_1.html">
+                            Arduino 笔记
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_2.html">
+                            电子元器件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_3.html">
+                            代码小结
+                        </a>
+                    </li>
+                </ul>
+                <h2>Arduino 智能小车</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino2_1.html">
+                            Arduino小车 测试篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_2.html">
+                            Arduino小车 蓝牙篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_3.html">
+                            Arduino小车 测速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_4.html">
+                            Arduino小车 调速篇
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="Arduino2_5.html">
+                            Arduino小车 避障篇
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>Arduino 智能小车————超声波避障</h1>
+                <h2>准备材料</h2>
+                <h3>超声波模块HC-SR04</h3>
+                <div><img class="shrink" src="../../IMAGE/HC.jpg"/></div>
+                <p>在这里简单说下超声波测距的原理，相信大家也都知道。超声波发射装置发出超声波，它的根据是接收器接到超声波时的时间差，与雷达测距原理相似。
+                    超声波发射器向某一方向发射超声波，在发射时刻的同时开始计时，超声波在空气中传播，途中碰到障碍物就立即返回来，超声波接收器收到反射波就立即停止计时。 </p>
+                <p>
+                    1) 采用Trig引脚触发，给至少10us的高电平脉冲信号 <br/>
+                    2) 模块自动发送8个40kHz的方波，自动检测是否有信号返回 <br/>
+                    3) 有信号返回，通过Echo引脚输出一个高电平脉冲，高电平脉冲持续的时间就是超声波从发射到反射返回的时间。<span class="note">距离=(高电平脉冲时间*340)/2</span>。（声音在空气中传播速度为340m/s）<br/>
+                </p>
+                <table>
+                    <tr>
+                        <th colspan="2">主要技术参数</th>
+                    </tr>
+                    <tr>
+                        <td>工作电压</td>
+                        <td>DC5V</td>
+                    </tr>
+                    <tr>
+                        <td>静态电流</td>
+                        <td>&lt;2mA</td>
+                    </tr>
+                    <tr>
+                        <td>输出电平</td>
+                        <td>0-5V</td>
+                    </tr>
+                    <tr>
+                        <td>感应角度</td>
+                        <td>≤15度</td>
+                    </tr>
+                    <tr>
+                        <td>探测距离</td>
+                        <td>2cm-450cm</td>
+                    </tr>
+                    <tr>
+                        <td>最高精度</td>
+                        <td>0.3cm</td>
+                    </tr>
+                </table>
+                <h2>舵机</h2>
+                <p>在这里推荐9G舵机SG90，或者其他类似的舵机，这种舵机体积比较小，扭矩虽然不是大，
+                    但是足够带动简易云台，很方便在小车上使用，大家购买时注意舵机的转动角度，有55度的，180度的等等，大家可以根据需要购买。</p>
+                <div><img class="shrink" src="../../IMAGE/duoji.jpg"/></div>
+                <h2>舵机固定架</h2>
+                <div><img class="shrink" src="../../IMAGE/duojijia.jpg"/></div>
+                <h2>舵机安装</h2>
+                <p>
+                    舵机在安装之前大家一定要记得校准，为什么要校准那，这个跟舵机的工作原理有关。控制信号由接收机的通道进入信号调制芯片，获得直流偏置电压。它内部有一个基准电路，产生周期为20ms，宽度为1.5ms的基准信号，将获得的直流偏置电压与电位器的电压比较，获得电压差输出。最后，电压差的正负输出到电机驱动芯片决定电机的正反转。当电机转速一定时，通过级联减速齿轮带动电位器旋转，使得电压差为0，电机停止转动。 </p>
+                <p>舵机的控制一般需要一个20ms左右的时基脉冲，该脉冲的高电平部分一般为0.5ms-2.5ms范围内的角度控制脉冲部分，总间隔为2ms。以180度角度伺服为例，那么对应的控制关系是这样的：</p>
+                <div><img class="shrink" src="../../IMAGE/duojicon.gif"/></div>
+                <table>
+                    <tr>
+                        <th>高电平时间</th>
+                        <th>对应位置</th>
+                    </tr>
+                    <tr>
+                        <td>0.5ms</td>
+                        <td>0度</td>
+                    </tr>
+                    <tr>
+                        <td>1.0ms</td>
+                        <td>45度</td>
+                    </tr>
+                    <tr>
+                        <td>1.5ms</td>
+                        <td>90度</td>
+                    </tr>
+                    <tr>
+                        <td>2.0ms</td>
+                        <td>135度</td>
+                    </tr>
+                    <tr>
+                        <td>2.5ms</td>
+                        <td>180度</td>
+                    </tr>
+                </table>
+                <p>也就是说当对舵机输入相同控制信号时，舵机会运动到固定位置，他的动作不是做圆周运动，而是在运动范围内，每一个位置对应一个控制信号。</p>
+                <p>因此我们需要在将舵机安装在固定架上之前，需要先将舵机初始化好，舵机一般为三根线：棕色——GND，红色——VCC，橙色——控制信号。因此我们将<span class="note">棕色线接到GND，红色线接到“+5V”引脚</span>，橙色线接到“10”引脚，初始化程序如下：
+                </p>
+                <pre>#include &lt;Servo.h&gt;  <span class="annotation">//加入含有舵机控制库的头文件</span>
+
+#define PIN_SERVO 10  <span class="annotation">//舵机信号控制引脚</span>
+Servo myservo;  
+
+void setup()  
+{  
+  myservo.attach(PIN_SERVO);  <span class="annotation">//舵机初始化</span>
+}  
+
+void loop()  
+{  
+  myservo.write(90);  <span class="annotation">//PWM输出</span>
+} </pre>
+                <p>在舵机初始化好之后将其安装在固定架上，然后装配在小车上，此时保证超声波模块超前。</p>
+                <h2>超声波接线</h2>
+                <p>超声波模块有四个引脚，“VCC”接到Arduino
+                    UNO开发板的“+5V”引脚，“GND”接到开发板“GND”引脚，“Trig”引脚接到开发板“8”引脚，“Echo”引脚接到开发板“7”引脚。 </p>
+                <div><img class="shrink" src="../../IMAGE/chaoshenglx.jpg"/></div>
+                <h2>代码测试</h2>
+                <pre>#include &lt;Servo.h&gt;
+
+#define STOP      0
+#define FORWARD   1
+#define BACKWARD  2
+#define TURNLEFT  3
+#define TURNRIGHT 4
+
+int leftMotor1 = 16;
+int leftMotor2 = 17;
+int rightMotor1 = 18;
+int rightMotor2 = 19;
+
+int leftPWM = 5;
+int rightPWM = 6;
+
+Servo myServo;  <span class="annotation">//舵机</span>
+
+int inputPin=7;   <span class="annotation">// 定义超声波信号接收接口</span>
+int outputPin=8;  <span class="annotation">// 定义超声波信号发出接口</span>
+
+void setup() {
+  <span class="annotation">// put your setup code here, to run once:</span>
+  <span class="annotation">//串口初始化</span>
+  Serial.begin(9600); 
+  <span class="annotation">//舵机引脚初始化</span>
+  myServo.attach(9);
+  <span class="annotation">//测速引脚初始化</span>
+  pinMode(leftMotor1, OUTPUT);
+  pinMode(leftMotor2, OUTPUT);
+  pinMode(rightMotor1, OUTPUT);
+  pinMode(rightMotor2, OUTPUT);
+  pinMode(leftPWM, OUTPUT);
+  pinMode(rightPWM, OUTPUT);
+  <span class="annotation">//超声波控制引脚初始化</span>
+  pinMode(inputPin, INPUT);
+  pinMode(outputPin, OUTPUT);
+}
+
+void loop() {
+  <span class="annotation">// put your main code here, to run repeatedly:</span>
+  avoidance();
+}
+void motorRun(int cmd,int value)
+{
+  analogWrite(leftPWM, value);  <span class="annotation">//设置PWM输出，即设置速度</span>
+  analogWrite(rightPWM, value);
+  switch(cmd){
+    case FORWARD:
+      Serial.println("FORWARD"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     case BACKWARD:
+      Serial.println("BACKWARD"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNLEFT:
+      Serial.println("TURN  LEFT"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNRIGHT:
+      Serial.println("TURN  RIGHT"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     default:
+      Serial.println("STOP"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, LOW);
+  }
+}
+void avoidance()
+{
+  int pos;
+  int dis[3];<span class="annotation">//距离</span>
+  motorRun(FORWARD,200);
+  myServo.write(90);
+  dis[1]=getDistance(); <span class="annotation">//中间</span>
+
+  if(dis[1]&lt;30)
+  {
+    motorRun(STOP,0);
+    for (pos = 90; pos &lt;= 150; pos += 1) 
+    {
+      myServo.write(pos);             <span class="annotation"> // tell servo to go to position in variable 'pos'</span>
+      delay(15);                       <span class="annotation">// waits 15ms for the servo to reach the position</span>
+    }
+    dis[2]=getDistance(); <span class="annotation">//左边</span>
+    for (pos = 150; pos &gt;= 30; pos -= 1) 
+    {
+      myServo.write(pos);              <span class="annotation">// tell servo to go to position in variable 'pos'</span>
+      delay(15);                       <span class="annotation">// waits 15ms for the servo to reach the position</span>
+      if(pos==90)
+        dis[1]=getDistance(); <span class="annotation">//中间</span>
+    }
+    dis[0]=getDistance();  <span class="annotation">//右边</span>
+    for (pos = 30; pos &lt;= 90; pos += 1) 
+    {
+      myServo.write(pos);              <span class="annotation">// tell servo to go to position in variable 'pos'</span>
+      delay(15);                       <span class="annotation">// waits 15ms for the servo to reach the position</span>
+    }
+    if(dis[0]&lt;dis[2]) <span class="annotation">//右边距离障碍的距离比左边近</span>
+    {
+      <span class="annotation">//左转</span>
+      motorRun(TURNLEFT,250);
+      delay(500);
+    }
+    else  <span class="annotation">//右边距离障碍的距离比左边远</span>
+    {
+      <span class="annotation">//右转</span>
+      motorRun(TURNRIGHT,250);
+      delay(500);
+    } 
+  }
+}
+int getDistance()
+{
+  digitalWrite(outputPin, LOW); <span class="annotation">// 使发出发出超声波信号接口低电平2μs</span>
+  delayMicroseconds(2);
+  digitalWrite(outputPin, HIGH); <span class="annotation">// 使发出发出超声波信号接口高电平10μs，这里是至少10μs</span>
+  delayMicroseconds(10);
+  digitalWrite(outputPin, LOW); <span class="annotation">// 保持发出超声波信号接口低电平</span>
+  int distance = pulseIn(inputPin, HIGH); <span class="annotation">// 读出脉冲时间</span>
+  distance= distance/58; <span class="annotation">// 将脉冲时间转化为距离（单位：厘米）</span>
+  Serial.println(distance); <span class="annotation">//输出距离值</span>
+
+  if (distance &gt;=50)
+  {
+    <span class="annotation">//如果距离小于50厘米返回数据</span>
+    return 50;
+  }<span class="annotation">//如果距离小于50厘米小灯熄灭</span>
+  else
+    return distance;
+}</pre>
+                <h2>代码详解</h2>
+                <p>“Trig”引脚控制超声波发出声波，对应<span class="note">int outputPin=8;</span></p>
+                <p>“Echo”引脚反应接收到返回声波，对应<span class="note">int inputPin=7;</span></p>
+                <pre>int inputPin=7;   <span class="annotation">// 定义超声波信号接收接口</span>
+int outputPin=8;  <span class="annotation">// 定义超声波信号发出接口</span></pre>
+                <h2>int getDistance()函数解析</h2>
+                <p>超声波发出引脚“Trig”为高时对外发出超声波，为保证发出10μs声波，因此在发送之前需要将该引脚拉低，并给他一定反应时间。</p>
+                <pre>digitalWrite(outputPin, LOW); <span class="annotation">// 使发出发出超声波信号接口低电平2μs</span>
+delayMicroseconds(2);</pre>
+                <p>之后发送10μs超声波</p>
+                <pre>digitalWrite(outputPin, HIGH); <span
+                        class="annotation">// 使发出发出超声波信号接口高电平10μs，这里是至少10μs</span></pre>
+                <p>声波发送之后禁止其继续发送，同时开始检测是否反射回来的声波</p>
+                <pre>digitalWrite(outputPin, LOW); <span class="annotation">// 保持发出超声波信号接口低电平</span>
+  int distance = pulseIn(inputPin, HIGH); <span class="annotation">// 读出脉冲时间</span></pre>
+                <p>pulseIn()单位为微秒，声速344m/s，所以距离cm=344*100/1000000*pulseIn()/2约等于pulseIn()/58.0 </p>
+                <p><span class="note">distance= distance/58; <span class="annotation">// 将脉冲时间转化为距离（单位：厘米）</span></span>
+                </p>
+                <p>
+                    超声波模块工作受物体表面反射程度影响，并且在传播过程中信号强度容易衰减，因此该模块适用的检测距离有限，一般在50cm以内相对正确，而且我们在避障时不需要检测太远的距离，因此超过50cm以上的都按50cm计算</p>
+                <pre>if (distance &gt;=50)
+  {
+    <span class="annotation">//如果距离小于50厘米返回数据</span>
+    return 50;
+  }<span class="annotation">//如果距离小于50厘米小灯熄灭</span>
+  else
+    return distance;</pre>
+                <h2>void avoidance()函数解析</h2>
+                <p>小车前进过程中只检测前方距离障碍的距离，并且控制舵机，保持超声波模块位于正前方。</p>
+                <pre>motorRun(FORWARD,200);
+  myServo.write(90);
+  dis[1]=getDistance(); <span class="annotation">//中间</span></pre>
+                <p>当检测到小车前方距离障碍距离小于30cm时停车，检测两边距离。</p>
+                <pre>motorRun(STOP,0);</pre>
+                <p>控制舵机每次运动一个周期后都返回正前方位置。由于舵机运动需要一定的时间，因此在每转过一个角度的时候都延时delay(15)，供其运动。</p>
+                <pre>for (pos = 90; pos &lt;= 150; pos += 1)
+{
+      myServo.write(pos);              <span class="annotation">// tell servo to go to position in variable 'pos'</span>
+      delay(15);                       <span class="annotation">// waits 15ms for the servo to reach the position</span>
+}</pre>
+                <p>当运动到最左边时检测小车左边距离障碍的距离</p>
+                <pre>dis[2]=getDistance(); <span class="annotation">//左边</span></pre>
+                <p>向右边运动，检测右边距离</p>
+                <pre>for (pos = 150; pos &gt;= 30; pos -= 1)
+{
+  myServo.write(pos);              <span class="annotation">// tell servo to go to position in variable 'pos'</span>
+  delay(15);                       <span class="annotation">// waits 15ms for the servo to reach the position</span>
+  if(pos==90)
+    dis[1]=getDistance(); <span class="annotation">//中间</span>
+}
+dis[0]=getDistance();  <span class="annotation">//右边</span></pre>
+                <p>将前边、左边、右边距离障碍的距离都检测结束之后，舵机回到最初位置。</p>
+
+                <pre>for (pos = 30; pos &lt;= 90; pos += 1)
+{
+  myServo.write(pos);              <span class="annotation">// tell servo to go to position in variable 'pos'</span>
+  delay(15);                       <span class="annotation">// waits 15ms for the servo to reach the position</span>
+}</pre>
+                <h2>注意事项</h2>
+                <p>
+                    1.舵机使用时要防止其堵转，因为点击堵转时电流会增大，很容易烧坏舵机。 <br/>
+                    2.舵机的红色电源线接入电压一般要大于等于其工作电压，供电不足会导致舵机不停自传。 <br/>
+                    3.Arduino
+                    《Servo.h》库里提供的write()函数输出的PWM即为舵机专用的20ms为周期的PWM波，如果使用其他开发板或者函数的话，请务必保证输出方波周期为20ms，否则舵机不会受控制<br/>
+                </p>
+                <h2>总结</h2>
+                <p>
+                    这一篇讲解了舵机和超声波模块的使用方法，舵机在大家以后的开发生涯中应该会经常用到，因此舵机的使用规则(控制周期为20ms)请大家一定要记清楚，在舵机不受控制的时候建议大家可以购买一个舵机测试仪来测试舵机。 </p>
+                <div><img class="shrink" src="../../IMAGE/duojiceshi.png"/></div>
+                <p>该模块使用很简单，在“INPUT”端接入VCC和GND，在OUTPUT端按照提示接上舵机，即可转动旋钮来控制舵机运转，在实际工程中经常会用来测试。 </p>
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

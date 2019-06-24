@@ -1,0 +1,304 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>Arduino Note</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino1_1.html">
+                            Arduino 笔记
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_2.html">
+                            电子元器件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_3.html">
+                            代码小结
+                        </a>
+                    </li>
+                </ul>
+                <h2>Arduino 智能小车</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino2_1.html">
+                            Arduino小车 测试篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_2.html">
+                            Arduino小车 蓝牙篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_3.html">
+                            Arduino小车 测速篇
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="Arduino2_4.html">
+                            Arduino小车 调速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_5.html">
+                            Arduino小车 避障篇
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>Arduino 智能小车————调速篇</h1>
+                <h2>PWM</h2>
+                <p>
+                    脉宽调制(PWM)基本原理：控制方式就是对逆变电路开关器件的通断进行控制，使输出端得到一系列幅值相等的脉冲，用这些脉冲来代替正弦波或所需要的波形。也就是在输出波形的半个周期中产生多个脉冲，使各脉冲的等值电压为正弦波形，所获得的输出平滑且低次谐波少。按一定的规则对各脉冲的宽度进行调制，即可改变逆变电路输出电压的大小，也可改变输出频率。 </p>
+                <div><img src="../../IMAGE/pwm.gif"/></div>
+                <p>
+                    通俗一点讲那，就是当如果我们想输出5V电压时，只需一直输出高电平即可；当我们想输出3.75V电压时，那我们就需要在一个周期内（一个高电平和一个低电平为一个周期）3.75÷5=75%时间输出高电平，25%时间输出低电平；同理，如果想输出2.5V电压时，我们需要在一个周期内50%时间输出高电平，50%时间输出低电平。 </p>
+                <div><img src="../../IMAGE/pwmAR.png"/></div>
+                <p>Arduino UNO开发板上只有带有“~”表示的引脚才具有PWM功能，因此我们在控制驱动时可以使用这几个引脚。</p>
+                <h2>驱动模块接线</h2>
+                <p>在前面的教程中已经讲过如果想控制驱动的输出时，需要对驱动的“ENA”“ENB”进行控制，因此我们需要将图中被选中部分的两个跳线帽拔掉。并将“ENA”连接Arduino
+                    UNO开发板的“5”引脚，“ENB”连接“6”引脚。 </p>
+                <div><img src="../../IMAGE/qd.png"/></div>
+                <h2>代码测试</h2>
+                <pre>int leftCounter=0,  rightCounter=0;
+unsigned long time = 0, old_time = 0; <span class="annotation">// 时间标记</span>
+unsigned long time1 = 0; <span class="annotation">// 时间标记</span>
+float lv,rv;<span class="annotation">//左、右轮速度</span>
+
+#define STOP        0
+#define FORWARD     1
+#define BACKWARD    2
+#define TURNLEFT    3
+#define TURNRIGHT   4
+#define CHANGESPEED 5
+
+int leftMotor1 = 16;
+int leftMotor2 = 17;
+int rightMotor1 = 18;
+int rightMotor2 = 19;
+bool speedLevel=0;
+
+int leftPWM = 5;
+int rightPWM = 6;
+
+void setup() {
+  <span class="annotation">// put your setup code here, to run once:</span>
+  Serial.begin(9600); 
+  attachInterrupt(0,RightCount_CallBack, FALLING);
+  attachInterrupt(1,LeftCount_CallBack, FALLING);
+
+  pinMode(leftMotor1, OUTPUT);
+  pinMode(leftMotor2, OUTPUT);
+  pinMode(rightMotor1, OUTPUT);
+  pinMode(rightMotor2, OUTPUT);
+  pinMode(leftPWM, OUTPUT);
+  pinMode(rightPWM, OUTPUT);
+}
+
+void loop() {
+  <span class="annotation">// put your main code here, to run repeatedly:</span>
+  SpeedDetection();
+
+  if(Serial.available()>0)
+  {
+    char cmd = Serial.read();
+
+    Serial.print(cmd);
+    motorRun(cmd);
+    if(speedLevel)  <span class="annotation">//根据不通的档位输出不同速度</span>
+    {
+      analogWrite(leftPWM, 120);
+      analogWrite(rightPWM, 120);
+    }
+    else
+    {
+      analogWrite(leftPWM, 250);
+      analogWrite(rightPWM, 250);
+    }
+  }  
+}
+<span class="annotation">/*
+ * *速度计算
+ */</span>
+bool SpeedDetection()
+{
+  time = millis();<span class="annotation">//以毫秒为单位，计算当前时间 </span>
+  if(abs(time - old_time) >= 1000) <span class="annotation">// 如果计时时间已达1秒</span>
+  {  
+    detachInterrupt(0); <span class="annotation">// 关闭外部中断0</span>
+    detachInterrupt(1); <span class="annotation">// 关闭外部中断1</span>
+    <span class="annotation">//把每一秒钟编码器码盘计得的脉冲数，换算为当前转速值
+    //转速单位是每分钟多少转，即r/min。这个编码器码盘为20个空洞。</span>
+    Serial.print("left:");
+    lv =(float)leftCounter*60/20;<span class="annotation">//小车车轮电机转速</span>
+    rv =(float)rightCounter*60/20;<span class="annotation">//小车车轮电机转速</span>
+    Serial.print("left:");
+    Serial.print(lv);<span class="annotation">//向上位计算机上传左车轮电机当前转速的高、低字节</span>
+    Serial.print("     right:");
+    Serial.println(rv);<span class="annotation">//向上位计算机上传左车轮电机当前转速的高、低字节</span>
+    <span class="annotation">//恢复到编码器测速的初始状态</span>
+    leftCounter = 0;   <span class="annotation">//把脉冲计数值清零，以便计算下一秒的脉冲计数</span>
+    rightCounter = 0;
+    old_time=  millis();     <span class="annotation">// 记录每秒测速时的时间节点</span>
+    attachInterrupt(0, RightCount_CallBack,FALLING); <span class="annotation">// 重新开放外部中断0</span>
+    attachInterrupt(1, LeftCount_CallBack,FALLING); <span class="annotation">// 重新开放外部中断0</span>
+    return 1;
+  }
+  else
+    return 0;
+}
+<span class="annotation">/*
+ * *右轮编码器中断服务函数
+ */</span>
+void RightCount_CallBack()
+{
+  rightCounter++;
+}
+<span class="annotation">/*
+ * *左轮编码器中断服务函数
+ */</span>
+void LeftCount_CallBack()
+{
+  leftCounter++;
+}
+<span class="annotation">/*
+ * *小车运动控制函数
+ */</span>
+void motorRun(int cmd)
+{
+  switch(cmd){
+    case FORWARD:
+      Serial.println("FORWARD"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     case BACKWARD:
+      Serial.println("BACKWARD"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNLEFT:
+      Serial.println("TURN  LEFT"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNRIGHT:
+      Serial.println("TURN  RIGHT"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     case CHANGESPEED:
+      Serial.println("CHANGE SPEED"); <span class="annotation">//输出状态</span>
+      if(speedLevel)  <span class="annotation">//接收到换挡命令的时候切换档位</span>
+        speedLevel=0;
+      else
+        speedLevel=1;
+      break;
+     default:
+      Serial.println("STOP"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, LOW);
+  }
+}</pre>
+                <p>由于之前设计不太合理，占用了太多的PWM引脚，因此在代码里对控制小车电机的引脚做了点小改动，如下所示</p>
+                <pre>int leftMotor1 = 5;
+int leftMotor2 = 6;
+int rightMotor1 = 7;
+int rightMotor2 = 8;</pre>
+                <p>现在改为</p>
+                <pre>int leftMotor1 = 16;
+int leftMotor2 = 17;
+int rightMotor1 = 18;
+int rightMotor2 = 19;</pre>
+                <p>在前面的宏定义中加入换挡的定义#define CHANGESPEED 5</p>
+                <pre>#define STOP        0
+#define FORWARD     1
+#define BACKWARD    2
+#define TURNLEFT    3
+#define TURNRIGHT   4
+#define CHANGESPEED 5</pre>
+                <p>Arduion的PWM引脚需要和正常引脚一样,在void setup()函数中初始化为输出模式</p>
+                <pre>pinMode(leftPWM, OUTPUT);
+pinMode(rightPWM, OUTPUT);</pre>
+                <p>在小车的控制状态函数void motorRun(int cmd)中添加多一个选择项，用来切换速度。</p>
+                <pre>case CHANGESPEED:
+      Serial.println("CHANGE SPEED"); <span class="annotation"><span class="annotation">//输出状态</span></span>
+      if(speedLevel)  <span class="annotation">//接收到换挡命令的时候切换档位</span>
+        speedLevel=0;
+      else
+        speedLevel=1;
+      break;</pre>
+                <p>在主函数void loop()中添加PWM输出的函数，analogWrite(pin, value)函数中“pin”代表使用的引脚，“value”代表输出PWM值的大小，范围是0~255。</p>
+                <pre>if(speedLevel)  <span class="annotation">//根据不通的档位输出不同速度</span>
+    {
+      analogWrite(leftPWM, 120);
+      analogWrite(rightPWM, 120);
+    }
+    else
+    {
+      analogWrite(leftPWM, 250);
+      analogWrite(rightPWM, 250);
+    }</pre>
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<img src="../../IMAGE/logo.png"/>
+			</div>
+			<div id="nav">
+				<ul id="menu">
+					<li class="nav_current">
+						<a href="../Unity3d/Unity1_1.html">Unity3d</a>
+					</li>
+					<li>
+						<a href="../Arduino/Arduino1_1.html">Arduino</a>
+					</li>
+					<li>
+						<a href="../HTML/Html1_1.html">HTML</a>
+					</li>
+					<li>
+						<a href="../CSS/CSS1_1.html">CSS</a>
+					</li>
+					<li>
+						<a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+					</li>
+					<li>
+						<a href="../jQuery/jQuery1_1.html">jQuery</a>
+					</li>
+					<li>
+						<a href="../SQL/SQL1_1.html">SQL</a>
+					</li>
+					<li>
+						<a href="../DOS/DOS.html">DOS</a>
+					</li>
+				</ul>
+			</div>
+			<div id="content">
+				<div id="catalog">
+
+					<h2>第一章</h2>
+					<ul>
+						<li class="current">
+							<a href="#">
+								1.1 变量、数组与函数
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="section">
+					<h1>
+						1.1 变量、数组与函数
+					</h1>
+					<h2>变量</h2>
+					<p>
+					若不希望脚本中的public 变量显示在Inspector视图中，可为变量加上属性[HideInInspector]
+如：
+					</p>
+					<pre>[HideInInspector]
+public int speed;</pre>
+					<p>
+					如果希望限定一些值类型变量的取值范围，可以使用RangeAttribute来实现，RangeAttribute的形式为[Range(min,max)]，这样，在Inspector视图中对变量值进行改动时，就只能在RangeAttribure限定的范围内变化。
+					</p>
+					<pre>[Range(0.0F,10.0F)]
+public float speed=0.0F;</pre>
+					<hr/>
+					<h2>数组</h2>
+					<p>
+					数组的声明示例：
+					</p>
+					<pre>public int[] arr={1,2};
+GameObject[] gos=new GameObject[10];
+private string[] authors={"Tec","Wentell","Eric","Vincent"};</pre>
+					<p>
+					基于序号index的for循环和基于IEnumerable的foreach循环来访问数组中的元素：
+					</p>
+					<pre>for{int i=0;i&lt;arr.Length;++i}
+  Debug.Log(arr[i]);
+foreach(var i in arr)
+  print(i);</pre>
+					<p>多维数组每一行的列数必须相等，下面为二维数组的示例：</p>
+					<pre><span class="annotation">//声明一个3*4的二维数组arr1</span>
+int[,] arr1=new int[3,4];
+arr1[0,0]=10;
+arr1[0,1]=20;
+print(arr1,Length);  <span class="annotation">//输出12</span>
+<span class="annotation">//声明并初始化一个2*3的二维数组arr2</span>
+int[,] arr2=new int[2,3]{{1,2,3},{4,5,6}};
+print(arr2.Length);  <span class="annotation">//输出6</span></pre>
+					<p>交叉数组每一行的列数可以不相等，示例如下：</p>
+					<pre><span class="annotation">//声明一个三行的交叉数组</span>
+int[][] mArr1=new int[3][];  
+mArr1[0]=new int[7]{1,2,3,4,5,6,7};  <span class="annotation">//为交叉数组mArr1一行元素赋值</span>
+print(mArr1.Length);   <span class="annotation">//输出为3</span>
+<span class="annotation">//声明并初始化一个三行的交叉数组</span>
+int[][] mArr2=new int[3][]{new int[3]{1,2,3},new int[5]{4,5,6,7,8},new int[4]{3,4,5,6}}；
+print(mArr2.Length);  <span class="annotation">//输出3</span>
+<span class="annotation">//声明一个4行的交叉数组，行数未指定，由编译器根据初始值推断</span>
+int[][] mArr3=new int[][]{new int[]{1,2},new int[]{3,4,5},new int[]{6,7,8,9},new int[]{10,20}};
+<span class="annotation">//声明一个交叉数组，未初始化，未指定行数</span>
+int[][] mArr4;
+foreach(var a in mArr2)
+{  print(a.Length);  <span class="annotation">//输出每一行中元素的个数</span>
+   foreach(var b in a)
+      print(b);      <span class="annotation">//输出每一行上的元素</span>
+}</pre>				<p>交叉数组需要注意的是：</p>
+					<p>(1) 声明交叉数组时可以指定数组的行数，而列数不能指定。</p>
+					<p>(2) 交叉数组的长度（Length）等于行数。每一行的列数不固定。</p>
+					<p>(3) 交叉数组的每一行元素都是一个一维数组。</p>
+					<hr/>
+					<h2>函数</h2>
+					<p>函数声明形式为：</p>
+					<pre>返回类型 函数名(参数列表)
+{
+   函数体
+}</pre>				
+					<p>以下为C#脚本中的函数示例:</p>
+					<pre>void Update()
+{  
+    if(Input.GetMouseButtonDown(0))
+    {  
+	  Vector2 p =Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	  print(string.Format("x={0},y={1}",p.x,p.y));
+    }
+}
+public float Tax(float income,float ratio)
+{  
+   return(income-3500.0f)*ratio;
+}</pre>				
+					<p>在C++语言中，参数的传递方式分为传值（pass by value）、传址（pass by address/pointer）和传引用（pass by reference），
+					而在C#函数中，只存在传值和传引用两种方式，其中传引用可由关键字ref和out来完成，两者的区别在于若用ref方式来传递参数，
+					则该实际参数必须先初始化，而通过out方式则不需要初始化，out参数也称为输出参数。</p>
+					<p>以下是两个Unity中的C#函数，其中函数UpdateName接收string类型的ref参数，而函数FindObject则接收GameObject类型的out参数。</p>
+					<pre>public void UpdateName(ref string name)
+{
+   name="Unity book";
+}
+public void FindObject(string key,out GameObject target)
+{
+   if(dict.ContainsKey(key))
+      target=dict[key];
+   else 
+      target=null;
+}</pre>
+					<p>要正确调用这两个函数，在传递参数时必须加上相应的关键字ref或out</p>
+					<pre>string name="Hello,World";
+UpdateName(ref name);
+print(name);
+string key="key";
+GameObject obj;
+FindObject(key,out obj);</pre>
+
+				
+				</div>
+			
+			</div>
+			
+			<div id="footer">
+			</div>
+		</div>
+		
+	
+	</body>
+</html>

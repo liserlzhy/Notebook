@@ -1,0 +1,8 @@
+#log *{margin:0px;padding:0px;}
+#log ul{}
+#log ul li{float:left;list-style:none;}
+#log ul a:link{display:block;width:50px;height:30px;text-decoration:none;background-color: darkolivegreen;text-align: center;padding-top:10px;border:1px solid greenyellow;color:yellow;}
+#log ul:after{content:".";display:block;visibility:hidden;line-height:0;height:0;clear:both;}
+#log ul a:hover{background-color:yellow;color:blue;}
+#log ul a:active{background-color:red;color:white;}
+#a{background-color:black;color:white;}

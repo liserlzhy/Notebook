@@ -1,0 +1,255 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>CSS</h2>
+                <ul>
+                    <li>
+                        <a href="CSS1_1.html">
+                            选择器
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="CSS1_2.html">
+                            CSS 常用操作
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="current">
+                        <a href="CSS1_3.html">
+                            2D、3D转换
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>
+                    2D、3D转换
+                </h1>
+                <hr/>
+                <p>通过 CSS3 转换，我们能够对元素进行移动、缩放、转动、拉长或拉伸</p>
+                <pre class="code">.div{
+    <span class="annotation">/*2D*/</span>
+    transform:translate(200px,100px);<span class="annotation">/*移动到距离 x 200px，距离 y 100px*/</span>
+    -webkit-transfom:translate(200px,100px); <span class="annotation">/*safari chrome*/</span>
+    -ms-transform:translate(200px,100px);<span class="annotation">/*IE 360*/</span>
+    -o-transform:translate(200px,100px);<span class="annotation">/*opera*/</span>
+    -moz-transform:translate(200px,100px);<span class="annotation">/*Firefox*/</span>
+
+    transform:rotate(60deg);<span class="annotation">/*旋转60度*/</span>
+    -webkit-transfom:rotate(60deg); <span class="annotation">/*safari chrome*/</span>
+    -ms-transform:rotate(60deg);<span class="annotation">/*IE 360*/</span>
+    -o-transform:rotate(60deg);<span class="annotation">/*opera*/</span>
+    -moz-transform:rotate(60deg);<span class="annotation">/*Firefox*/</span>
+
+    transform:scale(1,2);<span class="annotation">/*宽度不变，高度为2倍*/</span>
+    transform:skew(20deg,20deg);<span class="annotation">/*x轴倾斜20度，y轴倾斜20度*/</span>
+
+    <span class="annotation">/*3D*/</span>
+    transform:rotateX(100deg);
+    transform:rotateY(100deg);
+}</pre>
+                <hr/>
+                <h2>过渡</h2>
+                <ol>
+                    <li>通过使用 CSS3，可以给元素添加一些效果</li>
+                    <li>CSS3 过渡上元素从一种样式转换到另一种样式
+                        <p>动画效果的CSS</p>
+                        <p>动画的执行时间</p>
+                    </li>
+                    <li>属性:<br/>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                            </tr>
+                            <tr>
+                                <td>transition</td>
+                                <td>设置四个过渡属性</td>
+                            </tr>
+                            <tr>
+                                <td>transition-property</td>
+                                <td>过渡的名称</td>
+                            </tr>
+                            <tr>
+                                <td>transition-duration</td>
+                                <td>过渡效果花费的时间</td>
+                            </tr>
+                            <tr>
+                                <td>transition-timing-function</td>
+                                <td>过渡效果的时间曲线</td>
+                            </tr>
+                            <tr>
+                                <td>transition-delay</td>
+                                <td>过渡效果的开始时间，延时多少</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ol>
+                <pre class="code">&lt;style&gt;
+ .Donhua{width:50px;height:50px;font-size:small;text-align:center;background-color: tomato;
+         transition:width 2s,height 2s,transform 2s,background-color 4s,font-size 1.5s;
+         transition-delay:0.3s;}
+
+ .Donhua:hover{width:100px;height:100px;font-size: large;background-color: forestgreen;
+               transform:rotate(360deg);}
+&lt;/style&gt;
+&lt;div class="Donhua"&gt;鼠标滑过动画效果&lt;/div&gt;</pre>
+                <div>
+                    <style>
+                        .Donhua {
+                            width: 50px;
+                            height: 50px;
+                            font-size: small;
+                            text-align: center;
+                            background-color: tomato;
+                            transition: width 2s, height 2s, transform 2s, background-color 4s, font-size 1.5s;
+                            transition-delay: 0.3s;
+                        }
+
+                        .Donhua:hover {
+                            width: 100px;
+                            height: 100px;
+                            font-size: large;
+                            background-color: forestgreen;
+                            transform: rotate(360deg);
+                        }
+                    </style>
+                    <div class="Donhua">鼠标滑过动画效果</div>
+                </div>
+                <hr/>
+                <h2>动画</h2>
+                <ol>
+                    <li>通过 CSS3，也可以进行创建动画了</li>
+                    <li>CSS3 的动画需要遵循 @keyframes 规则
+                        <p>规定动画的时长</p>
+                        <p>规定动画的名称</p>
+                    </li>
+                </ol>
+                <pre class="code">&lt;style&gt;
+.Donhua2{width:30px;height:30px;background-color: yellow;position:relative;
+         animation: anim 5s infinite alternate;}<span class="annotation">/*infinite:循环。alternate:反播放。*/</span>
+@keyframes anim {
+    0%{background-color: #ff2b0d;left:0px;top:0px;}
+    25%{background-color: #ff23de;left:200px;top:0px;}
+    50%{background-color: #133cff;left:200px;top:50px;opacity: 0.5;}
+    75%{background-color: #47ff22;left:0px;top:50px;opacity:0;}
+    100%{background-color:yellow;left:0px;top:0px;opacity:1;}
+}
+&lt;/style&gt;
+&lt;div class="Donhua2"&gt;&lt;/div&gt;</pre>
+                <div>
+                    <style>
+                        .Donhua2 {
+                            width: 30px;
+                            height: 30px;
+                            background-color: yellow;
+                            position: relative;
+                            animation: anim 5s infinite alternate;
+                        }
+
+                        @keyframes anim {
+                            0% {
+                                background-color: #ff2b0d;
+                                left: 0px;
+                                top: 0px;
+                            }
+                            25% {
+                                background-color: #ff23de;
+                                left: 200px;
+                                top: 0px;
+                            }
+                            50% {
+                                background-color: #133cff;
+                                left: 200px;
+                                top: 50px;
+                                opacity: 0.5;
+                            }
+                            75% {
+                                background-color: #47ff22;
+                                left: 0px;
+                                top: 50px;
+                                opacity: 0;
+                            }
+                            100% {
+                                background-color: yellow;
+                                left: 0px;
+                                top: 0px;
+                                opacity: 1;
+                            }
+                        }
+                    </style>
+                    <div class="Donhua2"></div>
+                </div>
+                <hr/>
+                <h2>分列</h2>
+                <pre class="code">.fenlie{
+    column-count:3;
+    column-gap:50px;
+    column-rule:5px outset #ff0000;
+}</pre>
+                <div>
+                    <style>
+                        .fenlie {
+                            column-count: 3;
+                            column-gap: 50px;
+                            column-rule: 5px outset #ff0000;
+                        }
+                    </style>
+                    <div class="fenlie">人民网北京2月24日电 (记者
+                        刘阳)国家发展改革委近日发出通知，决定自2月25日零时起将汽、柴油价格每吨分别提高300元和290元，折算到90号汽油和0号柴油（全国平均）每升零售价格分别提高0.22元和0.25元。
+                        此次国内成品油价格调整幅度，是按照现行国内成品油价格形成机制，根据国际市场油价变化情况确定的。去年11月16日国内成品油价格调整以来，受市场预期欧美经济复苏前景向好以及中东局势持续动荡等因素影响，国际市场原油价格先抑后扬，2月上旬WTI和布伦特原油期货价格再次回升至每桶95美元和115美元以上。虽然近两日价格有所回落，但国内油价挂钩的国际市场三种原油连续22个工作日移动平均价格上涨幅度已超过4%，达到国内成品油价格调整的边界条件。
+                        通知指出，这次成品油调价后，国家将按照已建立的补贴机制，继续对种粮农民、渔业（含远洋渔业）、林业、城市公交、农村道路客运（含岛际和农村水路客运）等给予补贴。同时，为保证市场物价基本稳定，防止连锁涨价，对与居民生活密切相关的铁路客运、城市公交、农村道路客运（含岛际和农村水路客运）价格不作调整。
+                    </div>
+                </div>
+                <hr/>
+                <h2>瀑布流</h2>
+                <pre class="code">.pubu{column-width:250px;column-gap:5px;}
+.pubu div{width:250px;max-height:400px;margin:5px 0;}</pre>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

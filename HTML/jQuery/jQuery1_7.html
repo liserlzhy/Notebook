@@ -1,0 +1,280 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+        <link rel="stylesheet" type="text/css" href="../../CSS/myCSS.css"/>
+        <script src="../../JS/jquery-3.3.1.min.js"></script>
+        <script src="../../JS/myQuery.js"></script>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li class="current">
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>水平和垂直菜单实例</h1>
+                <hr/>
+                <h2>============ myCSS.css ==============</h2>
+                <pre class="code">#em_menu *{padding:0px;margin:0px;}
+#em_menu ul{padding:0px;margin:0px;}
+#em_menu li{list-style:none;}
+#em_menu ul>li{
+    background-image:url("../IMAGE/ku.jpg");
+    background-repeat: no-repeat;
+}
+#em_menu ul li ul li{ background-image: url("../IMAGE/xku.jpg");background-repeat: no-repeat;}
+#em_menu ul a{display:block;width:150px;height:40px;
+    line-height:39px;
+    text-align:center;
+    text-decoration:none;
+}
+#em_menu ul ul{display:none;}
+#em_menu ul li>a{position:relative;color: #01b3b4;}
+#em_menu ul li>a div{
+    width:0px;height:0px;
+    border:8px solid transparent;
+    border-left-color:#02feff;
+    position:absolute;
+    left:10px;
+    top:13px;
+    box-shadow: 0 0 5px white;
+}
+#em_menu ul li ul a{color:black;}</pre>
+                <h2>============ myQuery.js ==============</h2>
+                <pre class="code">$(document).ready(function () {
+    $("#em_menu>ul").last().children("li").css("float","left");
+    $("#em_menu>ul").first().children("li").children("a").on("click",function () {
+        $(this).next().slideToggle("normal");
+        changeM($(this).children("div"));
+    });
+    $("#em_menu>ul").eq(1).children("li").hover(function () {
+        $(this).children("ul").slideDown("normal");
+        changeM($(this).find("div"));
+    },function () {
+        $(this).children("ul").slideUp("normal");
+        changeM($(this).find("div"));
+    });
+});
+function changeM(node) {
+    if(node){
+        if(node.css("borderTopColor")=="rgba(0, 0, 0, 0)"){
+            node.css({border:"8px solid transparent",borderTopColor:"#02feff"});
+        }else{
+            node.css({border:"8px solid transparent",borderLeftColor:"#02feff"});
+        }
+    }
+}</pre>
+                <h2>============ index.html ==============</h2>
+                <div class="demoParent">
+                        <pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="../../CSS/myCSS.css"/&gt;
+    &lt;script src="../../JS/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+    &lt;script src="../../JS/myQuery.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="em_menu"&gt;
+        <span class="annotation">&lt;!--水平菜单栏--&gt;</span>
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;div&gt;&lt;/div&gt;HTML&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;div&gt;&lt;/div&gt;CSS&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;div&gt;&lt;/div&gt;jQuery&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;br/&gt;
+        <span class="annotation">&lt;!--垂直菜单栏--&gt;</span>
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;div&gt;&lt;/div&gt;HTML&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;div&gt;&lt;/div&gt;CSS&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;div&gt;&lt;/div&gt;jQuery&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;part3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div style="clear:both"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    <div class="demoPosition" style="top:200px;border:1px solid #02feff;padding:10px;">
+                        <p style="color:#00a2b4;text-align:center;">效果图展示:</p>
+                        <div id="em_menu">
+                            <ul>
+                                <li>
+                                    <a>
+                                        <div></div>
+                                        HTML</a>
+                                    <ul>
+                                        <li><a>part1</a></li>
+                                        <li><a>part2</a></li>
+                                        <li><a>part3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <div></div>
+                                        CSS</a>
+                                    <ul>
+                                        <li><a>part1</a></li>
+                                        <li><a>part2</a></li>
+                                        <li><a>part3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <div></div>
+                                        jQuery</a>
+                                    <ul>
+                                        <li><a>part1</a></li>
+                                        <li><a>part2</a></li>
+                                        <li><a>part3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <br/>
+                            <ul>
+                                <li>
+                                    <a>
+                                        <div></div>
+                                        HTML</a>
+                                    <ul>
+                                        <li><a>part1</a></li>
+                                        <li><a>part2</a></li>
+                                        <li><a>part3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <div></div>
+                                        CSS</a>
+                                    <ul>
+                                        <li><a>part1</a></li>
+                                        <li><a>part2</a></li>
+                                        <li><a>part3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <div></div>
+                                        jQuery</a>
+                                    <ul>
+                                        <li><a>part1</a></li>
+                                        <li><a>part2</a></li>
+                                        <li><a>part3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,127 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+	<div id="wrapper">
+		<div id="header">
+			<img src="../../IMAGE/logo.png"/>
+		</div>
+		<div id="nav">
+			<ul id="menu">
+				<li>
+					<a href="../Unity3d/Unity1_1.html">Unity3d</a>
+				</li>
+				<li class="nav_current">
+					<a href="../Arduino/Arduino1_1.html">Arduino</a>
+				</li>
+				<li>
+					<a href="../HTML/Html1_1.html">HTML</a>
+				</li>
+				<li>
+					<a href="../CSS/CSS1_1.html">CSS</a>
+				</li>
+				<li>
+					<a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+				</li>
+				<li>
+					<a href="../jQuery/jQuery1_1.html">jQuery</a>
+				</li>
+				<li>
+					<a href="../SQL/SQL1_1.html">SQL</a>
+				</li>
+				<li>
+					<a href="../DOS/DOS.html">DOS</a>
+				</li>
+			</ul>
+		</div>
+		<div id="content">
+			<div id="catalog">
+				<h2>Arduino Note</h2>
+				<ul>
+					<li>
+						<a href="Arduino1_1.html">
+							Arduino 笔记
+						</a>
+					</li>
+					<li class="current">
+						<a href="Arduino1_2.html">
+							电子元器件
+						</a>
+					</li>
+					<li>
+						<a href="Arduino1_3.html">
+							代码小结
+						</a>
+					</li>
+				</ul>
+				<h2>Arduino 智能小车</h2>
+				<ul>
+					<li>
+						<a href="Arduino2_1.html">
+							Arduino小车 测试篇
+						</a>
+					</li>
+					<li>
+						<a href="Arduino2_2.html">
+							Arduino小车 蓝牙篇
+						</a>
+					</li>
+					<li>
+						<a href="Arduino2_3.html">
+							Arduino小车 测速篇
+						</a>
+					</li>
+					<li>
+						<a href="Arduino2_4.html">
+							Arduino小车 调速篇
+						</a>
+					</li>
+					<li>
+						<a href="Arduino2_5.html">
+							Arduino小车 避障篇
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="section">
+				<h1>电子元器件</h1>
+				<hr/>
+				<h2>Arduino UNO</h2>
+				<p>Arduino 官方于 2010 年 10 月推出了新版的 Arduino，硬件尺寸皆同于旧版，最大的差异在于 USB to Serial 的转换 IC，主要核心还是 ATMEGA328。</p>
+				<p>UNO 在意大利文中的意思为 1，宣告一个新世代的来临。新版还采用了 MEGA8U2 这颗具有 8K Bytes 内存的 USB 控制器，通过可编辑的程序让 Arduino 变为各式 USB
+					装置，让使用者可以拥有更多的发挥空间。更棒的地方在于使用前不再需要额外安装驱动程序，只需要INF一个文件。</p>
+				<p>新版在硬件上也有一些特别之处：多了 ICSP 给 MEGA8U2 使用，这在意味着使用者可以自行撰写内部程序 因为舍弃了原有的 FTDI USB 芯片，板子上需要增加一颗稳压 IC 来提供 3.3V
+					电源。其他被动组件（电阻、电容等）部分也做了一些更改，让板子看起来更整齐美观。当然，软件上也要"除旧布新"，Bootloader 改用了 OptiBoot，所占的空间比较小（约 115k）。
+				<hr/>
+				<h2>线 材</h2>
+				<p>
+					电线大略分为单芯线与多芯线两种，单芯线多半使用在实验测试的阶段。配合面包板比较好的就是单芯线，它的芯的半径（22号线）刚好能符合面包板的孔径大小。另外还有一种镀银线，它的导电效果比较好，但线径较细，适合其他用途使用。</p>
+				<p>
+					多芯线则以用途来区分不同种类，有需要大电压及大电流的时候，就要使用比较粗、芯数较多的电线，确保电路不会因为负载过度而产生发热或绝缘橡胶融化的现象。正规的电线上头都会有标示其可承受的电压及电流极限。</p>
+				<hr/>
+				<h2>LED</h2>
+				<p>一个 LED 需要大约 10mA 的电流就能发出很明亮的光。Arduino 板可以提供 50mA 的电流，我们需要选择一个合适的电阻。</p>
+				<p>LED 有一个有趣的特性，那就是无论有多大的电流流过，它的两个引脚之间的电压差总是大约 <span class="note">2V</span> 。我们可以利用 LED
+					的这个特性和欧姆定律来计算所需电阻的值。</p>
+				<p> 我们想让 10mA 的电流流过电路，所以可以计算出电阻值应当为：</p>
+				<pre>R = V/I
+  = 3V/10mA
+  = 3V/0.01A
+  = 300Ω</pre>
+				<p>电阻的阻值都是用标称值标出的，而最接近 300Ω 的值是 270Ω，这意味着电路中的电流不是10mA，实际上是 11.111mA。</p>
+				<p>LED 可以在 5~30mA 的电流下正常工作，所以 270Ω 的电阻可以令电路正常工作。</p>
+
+
+			</div>
+
+		</div>
+
+		<div id="footer">
+		</div>
+	</div>
+		
+	
+	</body>
+</html>

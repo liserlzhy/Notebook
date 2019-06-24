@@ -1,0 +1,307 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>Arduino Note</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino1_1.html">
+                            Arduino 笔记
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_2.html">
+                            电子元器件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_3.html">
+                            代码小结
+                        </a>
+                    </li>
+                </ul>
+                <h2>Arduino 智能小车</h2>
+                <ul>
+                    <li class="current">
+                        <a href="Arduino2_1.html">
+                            Arduino小车 测试篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_2.html">
+                            Arduino小车 蓝牙篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_3.html">
+                            Arduino小车 测速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_4.html">
+                            Arduino小车 调速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_5.html">
+                            Arduino小车 避障篇
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>Arduino 智能小车————测试篇</h1>
+                <h2>驱动模块安装</h2>
+                <p>
+                    可能有些朋友会问到，驱动是干嘛的，为什么要驱动，小时候玩四驱车的时候直接装上电池小车就跑了，干嘛还要驱动模块。答案很简单，四驱车他只能朝着一个方向运动，而且永远都是以最大速度运行，我们所做的智能小车通常要控制小车电机的转速和运行方向，因此驱动是必不可少的模块。驱动模块的具体工作原理不在这里做详细的介绍，想了解的朋友可以自行查阅资料。</p>
+                <h2>驱动模块用法简介</h2>
+                <p>一般拿到一个模块之后都要去对应的官网找到它的资料包，查看其详细用法，在某宝上买的模块一般店家都有整理好的资料包，所以某宝也是一个很好的资料库，大家一定要合理运用哦~</p>
+                <p>在此我们选用的是L298N模块，该模块引脚分配如下： </p>
+                <div><img src="../../IMAGE/qd.png"/></div>
+                <p><span class="note">+12V：</span>该引脚接的电压是驱动模块所能输出给电机的最大电压，一般
+                    直接接电池。12V是由L298N芯片所能接受最大电压而定，一般介入5~12V电压。在此我们接入的电压为两节18650串联的电压，即3.7+3.7=7.4V；</p>
+                <p><span class="note">GND： </span>在该项目中GND即为电源的负极，同时要保证Arduino开发板，驱动模块等所有模块的GND连在一起才可以正常工作。在某些复杂的项目中还需要区分数字地和模拟地，在此不做详细介绍。
+                </p>
+                <p><span class="note">+5V： </span>
+                    L298N模块（注意不是L298N芯片）内含稳压电路（将高电压转换为低电压的电路），在模块内部将”+12V”引脚输入的电压转化为可供开发板使用的+5V电压，一般将此输出接入到开发板为开发板供电。
+                </p>
+                <p>L298N有两路输出，所以可以控制小车前进、后退、转弯，其中：<br/>
+                    <span class="note">ENA：</span>代表第一路输出的电压大小。驱动模块输出电压越高，电机转速越快。 <br/>
+                    1.当其输入为0V的时候，驱动模块输出对第一路电机输出电压为0V； <br/>
+                    2.当其输入为3.3V的时候，驱动模块对第一路电机输出电压为”+12V”引脚的输入电压。 <br/>
+                    3.由于ENA输入电压的高低控制驱动对电机的输出电压，因此当我们需要对小车运动速度进行控制的时候，一般通过PWM对”ENA”引脚进行控制。<br/></p>
+                <p><span class="note">IN1/IN2：</span>这两个引脚控制电机正反转方向。例:假如IN1输入高电平3.3V，IN2输入低电平0V，ENA为3.3V，电机正转，此时将IN1输入改为0V，IN2输入改为3.3V，其他条件不变，则电机将会反转。
+                </p>
+                <p><span class="note">OUT1/OUT2：</span>这两个引脚分别接电机的两极。</p>
+                <p><span class="note">ENB，IN3/IN4，OUT3/OUT4</span>引脚控制第二路输出，与上述<span
+                        class="note">ENB，IN3/IN4，OUT3/OUT4</span>功能相似。</p>
+                <h2>驱动安装</h2>
+                <p>
+                    将准备好的驱动模块固定在小车，将从地盘电机延长出来的导线分左右两边分开，左边两个电机中每一个电机的其中一根线OUT1，另外一个接OUT2。同理，右边两个电机中每一个电机的其中一根线OUT3，另外一个接OUT4，并用螺丝刀将拧蓝色接线柱上方的螺丝拧紧。</p>
+                <h2>电池座固定</h2>
+                <p>将电池固定在小车尾部，将电源的两根线链接到+12V和GND引脚，红色代表正极，接到+12V，黑色代表负极，接到GND（一般电路中默认红色为正，黑色为负），并拧紧螺丝固定。</p>
+                <h2>Ardunio开发板安装</h2>
+                <p>
+                    将Arduno板子用螺丝固定在小车中部，由于小车运动中也需要对开发板供电，此时我们用两根公对公的杜邦线为其供电，红色(也可以为其他颜色)杜邦线一边插入Arduino板的”5V”引脚，一边插到L298N驱动的”+5V”引脚，黑色(也可以为其他颜色)杜邦线一边插入Arduino板的”GND”引脚，一边插到L298N驱动的”GND”引脚。 </p>
+                <p>为控制电机的正反转，此时我们需要拿四根公对母杜邦线，将L298N驱动的IN1/IN2/IN3/IN3引脚与Arduino板的4/5/6/7号引脚对应相连，最终拼装图如下：</p>
+                <h2>Ardunio程序编写</h2>
+                <pre>#include &lt;Servo.h&gt;
+<span class="annotation">//定义五中运动状态</span>
+#define STOP      0
+#define FORWARD   1
+#define BACKWARD  2
+#define TURNLEFT  3
+#define TURNRIGHT 4
+<span class="annotation">//定义需要用到的引脚</span>
+int leftMotor1 = 4;
+int leftMotor2 = 5;
+int rightMotor1 = 6;
+int rightMotor2 = 7;
+
+void setup() {
+  <span class="annotation">// put your setup code here, to run once:</span>
+  <span class="annotation">//设置控制电机的引脚为输出状态</span>
+  pinMode(leftMotor1, OUTPUT);
+  pinMode(leftMotor2, OUTPUT);
+  pinMode(rightMotor1, OUTPUT);
+  pinMode(rightMotor2, OUTPUT);
+}
+
+void loop() {
+  <span class="annotation">// put your main code here, to run repeatedly:</span>
+  int cmd;
+  for(cmd=0;cmd&lt;5;cmd++)<span class="annotation">//依次执行向前、向后、向左、想有、停止四个运动状态</span>
+  {
+    motorRun(cmd);  
+    delay(2000);<span class="annotation">//每个命令执行2s </span>
+  } 
+}
+<span class="annotation">//运动控制函数</span>
+void motorRun(int cmd)
+{
+  switch(cmd){
+    case FORWARD:
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case BACKWARD:
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     case TURNLEFT:
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNRIGHT:
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     default:
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, LOW);
+  }
+}</pre>
+                <h2>代码详解</h2>
+                <p>为方便代码的编写，提高代码的可读性，在此我们先定义出小车可能的运动状态</p>
+                <pre>#define STOP      0 <span class="annotation">//停止</span>
+#define FORWARD   1 <span class="annotation">//前进</span>
+#define BACKWARD  2 <span class="annotation">//后退</span>
+#define TURNLEFT  3 <span class="annotation">//左转弯</span>
+#define TURNRIGHT 4 <span class="annotation">//右转弯</span></pre>
+                <p>
+                    电机运动需要经过驱动模块驱动，而驱动模块的输出状态又取决去IN1/IN2/EN，IN3/IN4/ENB这两组引脚的控制。本实验只是简单控制电机的运动，不用控制电机的转速，因此ENA,ENB默认接入高电平（买过来模块的时候，你会发现这两个引脚都通过跳线帽和”+5V”的引脚相连，即输出最大电压），此时我们只需控制IN1/IN2，IN3/IN4两组引脚即可对小车的运动状态进行控制。因此我们在此定义以下四个引脚</p>
+                <pre><span class="annotation">//定义需要用到的引脚</span>
+int leftMotor1 = 4;
+int leftMotor2 = 5;
+int rightMotor1 = 6;
+int rightMotor2 = 7;</pre>
+                <p>当电机的两个输入端加入的电压有电压差，且电压差满足一定条件时电机才会转动，为控制L298N驱动OUT1/OUT2，OUT3/OUT4两路输出，我们需要了解该模块的使用方法。</p>
+                <p class="note">下面两个表格为L298N的输入输出对应关系，其中H：高电平，L：低电平，ENA、ENB均为高电平</p>
+                <table>
+                    <tr>
+                        <th colspan="2">输入</th>
+                        <th colspan="2">输出</th>
+                    </tr>
+                    <tr>
+                        <td>IN1</td>
+                        <td>IN2</td>
+                        <td>OUT1</td>
+                        <td>OUT2</td>
+                    </tr>
+                    <tr>
+                        <td>H</td>
+                        <td>L</td>
+                        <td>H</td>
+                        <td>L</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>H</td>
+                        <td>L</td>
+                        <td>H</td>
+                    </tr>
+                </table>
+                <br/>
+                <table>
+                    <tr>
+                        <th colspan="2">输入</th>
+                        <th colspan="2">输出</th>
+                    </tr>
+                    <tr>
+                        <td>IN3</td>
+                        <td>IN4</td>
+                        <td>OUT3</td>
+                        <td>OUT4</td>
+                    </tr>
+                    <tr>
+                        <td>H</td>
+                        <td>L</td>
+                        <td>H</td>
+                        <td>L</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>H</td>
+                        <td>L</td>
+                        <td>H</td>
+                    </tr>
+                </table>
+                <p>由上述表格可以清晰看出控制小车运动时，只需要将同一边的两个引脚设置成不同的输出电压即可,例如让小车向前运动时左右两边的IN1和IN2可以设置为</p>
+                <pre>digitalWrite(leftMotor1, LOW);
+digitalWrite(leftMotor2, HIGH);
+digitalWrite(rightMotor1, LOW);
+digitalWrite(rightMotor2, HIGH);</pre>
+                <p>为了提高代码的执行效率，我们在此将小车的四种运动状态封装在函数里，方便调用。</p>
+                <pre>void motorRun(int cmd)
+{
+  switch(cmd){
+    case FORWARD:
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case BACKWARD:
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     case TURNLEFT:
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNRIGHT:
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     default:
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, LOW);
+  }
+}</pre>
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

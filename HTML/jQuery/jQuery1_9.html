@@ -1,0 +1,230 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <script src="../../JS/jquery-3.3.1.min.js"></script>
+        <script src="../../JS/jquery-ui.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../CSS/jquery-ui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li class="current">
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>jQuery Mobile</h1>
+                <hr/>
+                <h2>认识 jQuery Mobile</h2>
+                <h3>1、jQuery Mobile:</h3>
+                <p>jQuery Mobile 是 jQuery 在手机上和平板设备上的版本。jQuery Mobile 给主流移动平台带来 jQuery 核心库。与 jQuery
+                    核心库一样，你不需要安装任何东西；只需将 *.js 和 *.css 文件直接包含到你的 web 页面中即可。 </p>
+                <h3>2、jQuery Mobile 事件:</h3>
+                <p>触摸事件 - 当用户触摸屏幕时触发</p>
+                <p>滑动事件 - 当用户上下滑动时触发</p>
+                <p>定位事件 - 当设备水平或垂直翻转时触发</p>
+                <p>页面事件 - 当页面显示，隐藏，创建，加载或未加载时触发</p>
+                <h3>3、官网：</h3>
+                <p><a href="https://jquerymobile.com">https://jquerymobile.com</a></p>
+                <h3>4、适配屏幕</h3>
+                <p>&lt;meta charset="viewport" content="width=device-width,initial-scale=1.0"/&gt;</p>
+                <h3>5、布局：</h3>
+                <p>data-role="header" content footer</p>
+                <p>切换样式 data-transition="slidedown"</p>
+                <hr/>
+                <h2>jQuery Mobile 样式</h2>
+                Grid，Listview，Navbar，Popup，Selectmenu，Theming
+                <div class="hrh3">
+                    <h3>Grid</h3>
+                    <hr/>
+                    <p>ui-grid-c 表示有三列</p>
+                    <p>ui-block-a 表示第一列</p>
+                    <p>ui-grid-solo 只显示一列</p>
+                    <pre class="code">&lt;div class="ui-grid-b"&gt;
+    &lt;div class="ui-block-a"&gt;
+        &lt;div class="<span class="gj">ui-bar ui-bar-a</span> "&gt;A1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="gj">ui-block-b</span>"&gt;
+        &lt;div class="<span class="gj">ui-bar ui-bar-a</span>"&gt;A1&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="<span class="gj">ui-grid-solo</span>"&gt;
+    &lt;div class="<span class="gj">ui-block-a</span>"&gt;&lt;input type="button"/&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    <h3>ListView</h3>
+                    <hr/>
+                    <p>filter 允许过滤</p>
+                    <p>inset 允许插入</p>
+                    <pre class="code">&lt;ul data-role="listview" data-filter="true" data-inset="true"&gt;
+    &lt;li&gt;A&lt;/li&gt;
+    &lt;li&gt;B&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                    不显示列表内容进行查找
+                    <pre class="code"> &lt;form class="<span class="gj">ui-filterable</span>"&gt;
+    &lt;input id="autoinput" data-type="search"/&gt;
+&lt;/form&gt;
+&lt;ul data-role="listview" data-filter="true" data-filter-reveal="true" data-input="#autoinput" data-inset="true"&gt;
+    &lt;li&gt;A&lt;/li&gt;
+    &lt;li&gt;B&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                    列表带索引
+                    <pre class="code">&lt;ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true"&gt;
+    &lt;li&gt;A&lt;/li&gt;
+    &lt;li&gt;B&lt;/li&gt;
+&lt;/ul&gt;</pre>
+                    <h3>navbar 导航条</h3>
+                    <hr/>
+                    <p>ui-btn-active 默认选中状态</p>
+                    <p>data-icon 图标</p>
+                    <pre class="code"> &lt;div data-role="header"&gt;
+    &lt;h1&gt;my head&lt;/h1&gt;
+    &lt;div data-role="navbar"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a class="ui-btn-active"&gt;one&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a data-icon="grid"&gt;two&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;three&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    <h3>popup</h3>
+                    <hr/>
+                    <pre class="code"><span class="annotation">//点击按钮弹出内容</span>
+&lt;a href="#pp" data-rel="popup" class="ui-btn"&gt;弹出窗口&lt;/a&gt;
+&lt;div data-role="popup" id="pp"&gt;
+    &lt;p&gt;这是一个弹出窗口&lt;/p&gt;
+&lt;/div&gt;
+<span class="annotation">&lt;!--点击图片弹出放大的图片--&gt;</span>
+&lt;a href="#pop" data-rel="popup" data-position-to="window" data-transition="fade"&gt;
+    &lt;img src="xx.jpg" class="pupphoto" style="width:20%"/&gt;
+&lt;/a&gt;
+&lt;div data-role="popup" id="pop"&gt;
+    &lt;a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"&gt;close&lt;/a&gt;
+    &lt;img src="xx.jpg" class="popphoto" style="max-height:512px"/&gt;
+&lt;/div&gt;</pre>
+                    <h3>select</h3>
+                    <hr/>
+                    <pre class="code"> &lt;div class="ui-field-contain"&gt;
+    &lt;select name="select-native-1" id="select-native-1" data-iconpos="left"&gt;
+        &lt;option value="1"&gt;ONE&lt;/option&gt;
+        &lt;option value="2" disabled="disabled"&gt;TWO&lt;/option&gt;
+        &lt;option value="3"&gt;THREE&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;</pre>
+                    <h3>弹出跳转</h3>
+                    <hr/>
+                    <pre class="code">&lt;a href="#pagetwo" data-rel="dialog"&gt;&lt;/a&gt;</pre>
+                    <h3>删除图标</h3>
+                    <hr/>
+                    <pre class="code">&lt;a class="ui-btn ui-shadow ui-icon-delete ui-btn-icon-notext ui-corner-all"&gt;按钮&lt;/a&gt;</pre>
+                    <h3>controlgroup</h3>
+                    <hr/>
+                    <p>controlgroup:间隔很小</p>
+                    <p>取消间隔 data-type="horizontal"</p>
+                    <pre class="code">&lt;div data-role="controlgroup" data-type="horizontal"&gt;
+    &lt;a class="ui-btn ui-btn-inline"&gt;&lt;/a&gt;
+    &lt;a class="ui-btn ui-btn-inline"&gt;&lt;/a&gt;
+&lt;/div&gt;</pre>
+                    <h3>主题更换 class="ui-btn-a"</h3>
+                    <hr/>
+                    <p>&lt;a class="ui-btn ui-btn-a"&gt;&lt;/a&gt;</p>
+                    <h3>checkbox/radio</h3>
+                    <hr/>
+                    <p> checkbox 复选框和 radio 单选框放在label里会美观,放在 fieldset 成一组</p>
+                    <p>data-theme="" 也可更换主题，horizontal 一行显示。</p>
+                    <pre class="code">&lt;fieldset data-role="controlgroup" data-type="horizontal"&gt;
+        &lt;label&gt;
+            &lt;input type="checkbox"/&gt;A
+        &lt;/label&gt;
+        &lt;label&gt;
+            &lt;input type="checkbox" data-theme="b"/&gt;B
+        &lt;/label&gt;
+    &lt;/fieldset&gt;</pre>
+
+                    <h3>展开项 collapsible</h3>
+                    <hr/>
+                    <p>去掉下边框 data-content-theme="false"</p>
+                    <p>默认展开 data-collapsed="false"</p>
+                    <p>列表项 data-role="listview"</p>
+                    <pre class="code">&lt;div data-role="collapsible" data-content-theme="false"&gt;
+        &lt;h4&gt;heading&lt;/h4&gt;
+        &lt;ul data-role="listview"&gt;
+            &lt;li&gt;&lt;a&gt;item1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;item2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;item3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;</pre>
+                    <h3>data-position="fixed" 固定位置 </h3>
+                    <hr/>
+                    <pre class="code">&lt;div data-role="footer" data-position="fixed"&gt;&lt;/div&gt;</pre>
+                </div>
+
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

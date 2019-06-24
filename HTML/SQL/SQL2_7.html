@@ -1,0 +1,168 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>SQL 基础教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL1_1.html">
+                            SQL 基础命令
+                        </a>
+                    </li>
+                </ul>
+                <h2>SQL 高级教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL2_1.html">
+                            SQL Top
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_2.html">
+                            SQL Like
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_3.html">
+                            SQL 通配符
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_4.html">
+                            SQL In
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_5.html">
+                            SQL Between
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_6.html">
+                            SQL Alias
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="SQL2_7.html">
+                            SQL JOIN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_8.html">
+                            SQL Union
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>SQL Join</h1>
+                <hr/>
+                <p>SQL join 用于根据两个或多个表中的列之间的关系，从这些表中查询数据。</p>
+                <hr/>
+                <h2>引用两个表</h2>
+                <pre class="code">mysql> select * from persons;
++----------+----------+-----------+----------------+----------+
+| PersonID | LastName | FirstName | Address        | City     |
++----------+----------+-----------+----------------+----------+
+|        1 | Adams    | John      | Oxford Street  | London   |
+|        2 | Bush     | George    | Fifth Avenue   | New York |
+|        3 | Carter   | Thomas    | Changan Street | Beijing  |
+|        4 | Gates    | Bill      | Xuanwumen 10   | Beijing  |
++----------+----------+-----------+----------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from P_Orders;
++------+---------+------+
+| ID_O | OrderNo | Id_P |
++------+---------+------+
+|    1 |   77895 |    3 |
+|    2 |   44678 |    3 |
+|    3 |   22456 |    1 |
+|    4 |   24562 |    1 |
+|    5 |   34764 |   65 |
++------+---------+------+
+5 rows in set (0.00 sec)
+mysql> <span class="fc">SELECT persons.LastName, Persons.FirstName,P_Orders.orderNo FROM persons, P_Orders WHERE 
+persons.PersonID = P_Orders.Id_P;</span>
++----------+-----------+---------+
+| LastName | FirstName | orderNo |
++----------+-----------+---------+
+| Carter   | Thomas    |   77895 |
+| Carter   | Thomas    |   44678 |
+| Adams    | John      |   22456 |
+| Adams    | John      |   24562 |
++----------+-----------+---------+
+4 rows in set (0.01 sec)</pre>
+                <hr/>
+                <h2>SQL JOIN - 使用 Join</h2>
+                <p>除了上面的方法，我们也可以使用关键词 JOIN 来从两个表中获取数据。</p>
+                <pre class="code">mysql> <span class="fc">SELECT persons.LastName, persons.FirstName, P_Orders.OrderNo FROM persons INNER JOIN
+P_Orders ON persons.PersonID = P_Orders.Id_P;</span>
++----------+-----------+---------+
+| LastName | FirstName | OrderNo |
++----------+-----------+---------+
+| Carter   | Thomas    |   77895 |
+| Carter   | Thomas    |   44678 |
+| Adams    | John      |   22456 |
+| Adams    | John      |   24562 |
++----------+-----------+---------+
+4 rows in set (0.00 sec)</pre>
+                <p><span class="note">注释</span>INNER JOIN 与 JOIN 是相同的。</p>
+                <p>INNER JOIN 关键字在表中存在至少一个匹配时返回行。如果 "Persons" 中的行在 "Orders" 中没有匹配，就不会列出这些行。</p>
+                <hr/>
+                <h2>不同的 SQL JOIN</h2>
+                <p>除了我们在上面的例子中使用的 INNER JOIN（内连接），我们还可以使用其他几种连接。</p>
+                <ul>
+                    <li>JOIN: 如果表中有至少一个匹配，则返回行</li>
+                    <li>LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行</li>
+                    <li>RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行</li>
+                    <li>FULL JOIN: 只要其中一个表中存在匹配，就返回行</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

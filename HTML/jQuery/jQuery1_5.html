@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li class="current">
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JQuery CSS</h1>
+                <hr/>
+                css()，addClass()，removeClass()，toggleClass()
+                <h2>实例</h2>
+                ================ myCSS.css =================
+                <pre>.style1{width:50px;height:50px;background-color:red;}
+.style2{width:100px;height:100px;background-color:blue;}</pre>
+                ================ index.html =================
+                <pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="../../CSS/myCSS.css"/&gt;
+    &lt;script src="../../JS/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function () {
+            <span class="h_annotation">/*CSS 单个属性设置*/</span>
+          <span class="annotation">/*  $("div").css("width","100px");
+            $("div").css("height","100px");
+            $("div").css("border","1px blue solid");*/</span>
+
+            <span class="h_annotation">/*CSS 多个属性设置*/</span>
+            <span class="annotation">//$("div").css({width:"100px",height:"50px",backgroundColor:"yellow"});</span>
+
+            <span class="h_annotation">/*添加类*/</span>
+             $("div").addClass("style1");
+            <span class="h_annotation">/*移除类*/</span>
+             <span class="annotation">//$("div").removeClass("style1");</span>
+
+            $("div").click(function () {
+                $(this).toggleClass("style2"); <span class="h_annotation">//在addClass()，和removeClass()中来回切换</span>
+            });
+
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

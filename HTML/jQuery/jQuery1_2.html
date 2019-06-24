@@ -1,0 +1,233 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+        <script src="../../JS/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li class="current">
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JQuery HTML</h1>
+                <hr/>
+                <h2>捕获</h2>
+                text()，html()，val()，attr()。加参数可修改
+                <pre class="code">&lt;script&gt;
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            alert("p标签: "+$("#pid").text());<span class="h_annotation">//获取内容不包括内标签</span>
+            alert("p标签: "+$("#pid").html());<span class="h_annotation">//获取内容包括内标签</span>
+            alert("input_value: "+$("#tid").val());<span class="h_annotation">//获取表单value值</span>
+            alert("属性值: "+$("#tid").attr("type"));<span class="h_annotation">//获取属性值</span>
+
+        });
+    });
+&lt;/script&gt;
+&lt;p id="pid"&gt;&lt;input id="tid" type="text" value="1414223"/&gt;this is a p content&lt;/p&gt;
+&lt;button id="btn"&gt;按钮&lt;/button&gt;</pre>
+                1、attr()有两种属性值设置的方法:
+                <p>1)、$().attr("","");单个设置</p>
+                <p>2)、$().attr({"":"","":""});多个设置</p>
+                2、回调
+                <pre>$("#btn").click(function () {
+   $("#pid").text(function (i,old_text) {
+       return "old:"+old_text+",new:"+i+"|";
+   });
+});</pre>
+                <hr/>
+                <h2>元素的添加和删除</h2>
+                <h3>元素的添加:</h3>
+                在内容末尾和前面添加:
+                <p>&("").append("....");</p>
+                <p>&("").prepend("....");</p>
+                在标签前面和后面添加
+                <p>&("").before("....");</p>
+                <p>&("").after("....");</p>
+                <pre class="code">    &lt;script&gt;
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            <span class="h_annotation">/*
+            * html、jQuery、DOM
+            * */</span>
+            var text1 = "&lt;p&gt;html&lt;/p&gt;";
+            var text2 = $("&lt;p&gt;&lt;/p&gt;").text("jQuery");
+            var text3 = document.createElement("p");
+            text3.innerHTML="DOM";
+           $("#Div").append(text1,text2,text3);
+        });
+    });
+&lt;/script&gt;
+&lt;button id="btn"&gt;按钮&lt;/button&gt;
+&lt;div id="Div"&gt;&lt;/div&gt;</pre>
+                <h3>元素的删除:</h3>
+                有两种方法:
+                <p>1、$().remove() - 整个删除</p>
+                <p>2、$().empty() - 删除里面的内容</p>
+                <hr/>
+                <h2>jQuery 效果</h2>
+                隐藏/显示:
+                <p>hide()、show()、toggle()</p>
+                淡入/淡出:
+                <p>fadeIn()、fadeOut()、fadeToggle(1000,0.5)</p>
+                滑动
+                <p>slideDown()、slideUp()、slideToggle()</p>
+                <div class="demoParent">
+                          <pre class="code">&lt;script&gt;
+    $(document).ready(function () {
+        for(var i = 0;i&lt;5;i++){
+            $("&lt;div class='cdiv'&gt;").appendTo($("#hideDiv"));
+        }
+        <span class="h_annotation">/*隐藏*/</span>
+        $(".cdiv").click(function () {
+            $(this).hide(2000,function () {
+                <span class="h_annotation">//$(this).remove();</span>
+            });
+        });
+        <span class="h_annotation">/*淡入、淡出*/</span>
+        $("#btn1").on("click",function () {
+            $(".cdiv").fadeToggle(1000);
+        });
+        <span class="h_annotation">/*透明度*/</span>
+        $("#btn2").on("click",function () {
+            $(".cdiv").fadeTo(1000,0.5);
+        });
+        <span class="h_annotation">/*滑入、滑出*/</span>
+        $("#btn3").on("click",function () {
+            $("#hideDiv").slideToggle(2000);
+        });
+    });
+&lt;/script&gt;
+&lt;style&gt;
+    .cdiv{width:30px;height:30px;background-color:yellow;margin:2px;float:left;}
+&lt;/style&gt;
+&lt;button id="btn1"&gt;fadeToggle&lt;/button&gt;
+&lt;button id="btn2"&gt;fadeTo&lt;/button&gt;
+&lt;button id="btn3"&gt;slideToggle&lt;/button&gt;
+&lt;div id="hideDiv"&gt;
+&lt;/div&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;</pre>
+                    <div class="demoPosition">
+                        <script>
+                            $(document).ready(function () {
+                                for (var i = 0; i < 5; i++) {
+                                    $("<div class='cdiv'>").appendTo($("#hideDiv"));
+                                }
+                                /*隐藏*/
+                                $(".cdiv").click(function () {
+                                    $(this).hide(2000, function () {
+                                        //$(this).remove();
+                                    });
+                                });
+                                /*淡入、淡出*/
+                                $("#btn1").on("click", function () {
+                                    $(".cdiv").fadeToggle(1000);
+                                });
+                                /*透明度*/
+                                $("#btn2").on("click", function () {
+                                    $(".cdiv").fadeTo(1000, 0.5);
+                                });
+                                /*滑入、滑出*/
+                                $("#btn3").on("click", function () {
+                                    $("#hideDiv").slideToggle(2000);
+                                });
+                            });
+                        </script>
+                        <style>
+                            .cdiv {
+                                width: 30px;
+                                height: 30px;
+                                background-color: yellow;
+                                margin: 2px;
+                                float: left;
+                            }
+                        </style>
+                        <button id="btn1">fadeToggle</button>
+                        <button id="btn2">fadeTo</button>
+                        <button id="btn3">slideToggle</button>
+                        <div id="hideDiv">
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <h3>回调</h3>
+                    动画结束后，方法被调用
+                    <pre> $("p").hide(2000,function () {
+    alert("隐藏后弹出");
+});</pre>
+                    同时执行几个函数:
+                    <pre> $("p").css("color","red").slideUp(1000).slideDown(1000);</pre>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

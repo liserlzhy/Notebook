@@ -1,0 +1,313 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>HTML5</h2>
+                <ul>
+                    <li>
+                        <a href="Html1_1.html">
+                            简介
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Html1_2.html">
+                            HTML基础讲解
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="Html1_3.html">
+                            表单
+                        </a>
+                    </li>
+                </ul>
+                <h2>PHP</h2>
+                <ul>
+                    <li>
+                        <a href="Html2_1.html">
+                            简介
+                        </a>
+                    </li>
+                </ul>
+                <h2>XHTML</h2>
+                <ul>
+                    <li>
+                        <a href="Html3_1.html">
+                            简介
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>
+                    表单
+                </h1>
+                <hr/>
+
+                <h2>type 类型</h2>
+                复选框: checkbox<br/>
+                单选框: radio<br/>
+                下拉列表: &lt;select&gt;、&lt;option&gt;<br/>
+                文本域: &lt;textarea&gt;<br/>
+                按钮: button<br/>
+                提交: submit<br/>
+                <hr/>
+                <h2>表单新增属性</h2>
+                <h3>form 属性</h3>
+                <p>在 HTML4 中，表单内的从属元素必须书写在表单内部，而在 HTML5 中，可以把他们书写在页面上任何地方，然后为该元素指定一个 form 属性，属性值为该表单的 id
+                    ，这样就可以声明该元素的从属指定表单了。</p>
+                <h3>formaction 属性</h3>
+                <p>在 HTML4 中，一个表单内的所有元素只能通过表单的 action 属性被统一提交到另一个页面，而在 HTML5 中可以为所有的提交按钮，增加不同的 formaction
+                    属性，使单击不同的按钮时可以将表单提交到不同的页面。</p>
+                <h3>formmethod 属性</h3>
+                <p>在 HTML4 中，一个表单内只能有一个 action 属性用来对表单内所有元素统一指定提交页面，所以每个表单内页只有一个 method 属性来统一指定提交方法。在 HTML5 中，可以使用
+                    formmethod 属性来对每一个表单元素分别指定不同的提交方法。</p>
+                <h3>formenctype 属性</h3>
+                <p>在 HTML4 中，表单元素具有一个 enctype 属性，该属性用于指定在表单发送到服务器之前该如何对表单内的数据进行编码。在 HTML5 中，可以使用 formenctype
+                    属性对表单元素分别指定不同的编码方式。</p>
+                <p>默认地，表单数据会编码为 <span class="note">"application/x-www-form-urlencoded"</span>。就是说，在发送到服务器之前，所有字符都会进行编码（空格转换为
+                    "+" 加号，特殊符号转换为 ASCII HEX 值）。</p>
+                <span class="note">multipart/form-data:</span> 不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。<br/>
+                <span class="note">text/plain:</span> 空格转换为 "+" 加号，但不对特殊字符编码。
+                <h3>formtarget 属性</h3>
+                <p>在 HTML4 中，表单元素具有一个 target 属性，该属性用于指定在何处打开表单提交后所需要加载的页面。在 HTML5 中，可以对多个提交按钮分别使用 formtarget
+                    属性来知道提交后再何处打卡所需加载的页面。</p>
+                <h3>autofocus 属性</h3>
+                <p>为文本框、选择框或按钮控件加上 autofocus 属性，当画面打开时，该控件自动获得光标焦点。</p>
+                <h3>required 属性</h3>
+                <p>HTML5 中新增的 required 属性可以应用在大多数输入元素上，在提交时，如果元素中内容为空白，则不允许提交，同时在浏览器中显示提示文字。</p>
+                <h3>labels 属性</h3>
+                <p>在 HTML5 中，为所有可使用标签的表单元素、button、select 元素，定义一个 labels 属性，属性值为一个 NodeList 对象，代表该元素所绑定的标签元素所构成的集合。</p>
+                <h3>标签的 control 属性</h3>
+                <p>在 HTML5 中，可以在标签(label)内部放置一个表单元素，并且通过该标签的 control 属性来访问该表单元素。</p>
+                <h3>文本框的 placeholder 属性</h3>
+                <p>placeholder 是指当文本框处于未输入状态时显示的输入提示。当文本框处于未输入状态且未获取光标焦点时，模糊显示输入提示文字。</p>
+                <h3>文本框的 list 属性</h3>
+                <p>在 HTML5 中，为单行文本框增加了一个 list 属性，该属性值为某个 datalist 元素的 id。datalist 元素也是 HTML5
+                    中新增的元素，该元素类似于选择框，但是当用户想要设定的值不在选择列表之内时，允许自行输入。datalist 元素本身并不显示，而是当文本框获得焦点时以提示输入的方式显示。</p>
+                <h3>文本框的 autocomplete 属性</h3>
+                <p>帮助输入所用的自动完成功能，是一个既节省输入时间又十分方便的功能。在 HTML5 之前，因为谁都可以看见输入的值，所有在安全方面存在缺陷，只要使用 AutoComplete
+                    属性，安全性方面也可以得到很好的控制。</p>
+                <h3>文本框的 pattern 属性</h3>
+                <p>在 HTML5 中，对 input 元素使用 pattern
+                    属性，并且将属性值设为某个格式的正则表达式，在提交时会针对这些矩形检查，检查其内容是否符合给定格式。当输入的内容不符合给定格式时，则不允许提交，同时在浏览器中显示信息提示文字，提示输入的内容必须符合给定格式。</p>
+                <h3>文本框的 SelectionDirection 属性</h3>
+                <p>这对 input 元素与 textarea 元素，HTML5 增加了 SelectionDirection
+                    属性。当用户在这两个因素中用鼠标选取部分文字时，可以使用该属性来获取选取方向。当用户正向选取文字时，该属性值为“forward”，当用户反向选取文字时，该属性值为“backward”。当用户没有选取如何文字时，该属性值为“forward”。</p>
+                <h3>复选框的 indeterminate 属性</h3>
+                <p>对于复选框 checkbox 元素来说，过去只是选取与非选取这两种状态。在 HTML5 中，可以在 JavaScript 脚本代码中对该元素使用 indeterminate
+                    属性，以说明复选框处于“尚未明确是否选取”状态。</p>
+                <h3>image 提交按钮的 height 属性与 width 属性</h3>
+                <p>针对类型为 image 的 input 元素，HTML5 新增了两个属性，height、width 分别用来指定图片按钮的高度和宽度。</p>
+                <hr/>
+                <h2>实例1:</h2>
+                <pre class="code">&lt;form id="testform"&gt;
+    选择需要买的水果:Html1_2.html
+    苹果&lt;input type="checkbox"/&gt;
+    香蕉&lt;input type="checkbox"/&gt;
+    草莓&lt;input type="checkbox"/&gt;
+    &lt;br/&gt;
+    尚未明确选取状态:
+    &lt;input type="checkbox" id="cb"/&gt;属性测试
+    &lt;script&gt;
+        var cb = document.getElementById("cb");
+    cb.<span class="gj">indeterminate</span> = true;
+    &lt;/script&gt;
+    &lt;br/&gt;
+    选择你的性别:
+    男&lt;input type="radio" name="sex" checked="checked"/&gt;
+    女&lt;input type="radio" name="sex"/&gt;
+    &lt;br/&gt;
+    选择下拉选项:
+    &lt;select&gt;
+        &lt;option&gt;one&lt;/option&gt;
+        &lt;option&gt;two&lt;/option&gt;
+        &lt;option&gt;else&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;br/&gt;
+    填写个人信息:&lt;br/&gt;
+    &lt;textarea cols="10" rows="10"&gt;hello world!&lt;/textarea&gt;
+    &lt;br/&gt;
+    &lt;input type="button" value="按钮"/&gt;&lt;br/&gt;
+    &lt;input type="submit" value="提交1" <span
+                            class="gj">formtarget="_blank" formmethod="get" formaction="xx1.jsp"</span>/&gt;
+    提交到xx1.jsp页面
+    &lt;input type="submit" value="提交2" formtarget="_self" formmethod="post" formaction="xx2.jsp"/&gt;
+    提交到xx2.jsp页面
+&lt;/form&gt;
+&lt;input type="text" autofocus="autofocus" form="testform" formenctype="text/plain"/&gt;</pre>
+                效果如下:
+                <div class="effect">
+                    <form id="testform">
+                        选择需要买的水果:
+                        苹果<input type="checkbox"/>
+                        香蕉<input type="checkbox"/>
+                        草莓<input type="checkbox"/>
+                        <br/>
+                        尚未明确选取状态:
+                        <input type="checkbox" id="cb"/>属性测试
+                        <script>
+                            var cb = document.getElementById("cb");
+                            cb.indeterminate = true;
+                        </script>
+                        <br/>选择你的性别:
+                        男<input type="radio" name="sex" checked="checked"/>
+                        女<input type="radio" name="sex"/>
+                        <br/>选择下拉选项:
+                        <select>
+                            <option>one</option>
+                            <option>two</option>
+                            <option>else</option>
+                        </select>
+                        <br/>填写个人信息:<br/>
+                        <textarea cols="10" rows="10"></textarea>
+                        <br/>
+                        <input type="button" value="按钮"/><br/>
+                        <input type="submit" value="提交1" formtarget="_blank" formmethod="get" formaction="xx1.jsp"/>提交到xx1.jsp页面
+                        <input type="submit" value="提交2" formtarget="_self" formmethod="post" formaction="xx2.jsp"/>提交到xx2.jsp页面
+                    </form>
+                    <input type="text" required="required" form="testform" formenctype="text/plain"/>
+                    <!--autofocus="autofocus"-->
+                </div>
+                <h2>label、control实例:</h2>
+                <pre class="code">&lt;script&gt;
+    function Validate() {
+        var txtName = document.getElementById("txt_name");
+        var button = document.getElementById("btnValidate");
+        var form = document.getElementById("testform2");
+        if(txtName.value.trim()==""){
+            var label = document.createElement("label");
+            label.setAttribute("for","txt_name");
+            form.insertBefore(label,button);
+            txtName.labels[1].innerHTML = "请输入姓名";
+            txtName.labels[1].setAttribute("style","font-size:9px;color:red;");
+        }
+
+    }
+
+    function setValue() {
+        var label=document.getElementById("label2");
+        var textbox = label.<span class="gj">control</span>;
+        textbox.value = "123456";
+    }
+
+     function AD() {
+        var control = document.getElementById("txt_name");
+        var Direction = control.<span class="gj">selectionDirection</span>;
+        alert(Direction);
+     }
+&lt;/script&gt;
+&lt;form id="testform2"&gt;
+    &lt;label id="label" for="txt_name"&gt;姓名:&lt;/label&gt;
+    &lt;input id="txt_name"/&gt;
+    &lt;input type="button" id="btnValidate" value="验证" onclick="Validate()"/&gt;
+    &lt;input type="button" value="选择的方向" onclick="AD()"/&gt;
+    &lt;br/&gt;
+    &lt;label id="label2"&gt;
+        邮编: &lt;input id="txt_def" maxlength="6" <span class="gj">placeholder</span>="请输入邮箱"<span
+                            class="gj"> list</span>="greetings" <span class="gj">autocomplete</span>=""/&gt;
+        &lt;datalist id="greetings" style="display:none"&gt;
+            &lt;option&gt;123456@qq.com&lt;/option&gt;
+            &lt;option&gt;abcdef@outlook.com&lt;/option&gt;
+        &lt;/datalist&gt;
+    &lt;/label&gt;
+    &lt;input type="button" value="设置默认值" onclick="setValue()"/&gt;
+    &lt;br/&gt;
+    &lt;label for="pat1"&gt;输入符合正则表达式[A-Z]{3}的内容&lt;/label&gt;
+    &lt;input id="pat1" <span class="gj">pattern</span>="[A-Z]{3}"/&gt;
+    &lt;input type="submit"/&gt;
+&lt;/form&gt;</pre>
+                运行结果:
+                <div class="effect">
+                    <script>
+                        function Validate() {
+                            var txtName = document.getElementById("txt_name");
+                            var button = document.getElementById("btnValidate");
+                            var form = document.getElementById("testform2");
+                            if (txtName.value.trim() == "") {
+                                var label = document.createElement("label");
+                                label.setAttribute("for", "txt_name");
+                                form.insertBefore(label, button);
+                                txtName.labels[1].innerHTML = "请输入姓名";
+                                txtName.labels[1].setAttribute("style", "font-size:9px;color:red;");
+                            }
+                        }
+
+                        function setValue() {
+                            var label = document.getElementById("label2");
+                            var textbox = label.control;
+                            textbox.value = "11111@136.com";
+                        }
+
+                        function AD() {
+                            var control = document.getElementById("txt_name");
+                            var Direction = control.selectionDirection;
+                            alert(Direction);
+                        }
+                    </script>
+                    <form id="testform2">
+                        <label id="label" for="txt_name">姓名:</label>
+                        <input id="txt_name"/>
+                        <input type="image" src="../../IMAGE/timg.gif" width="30px" height="30px"/>
+                        <input type="button" id="btnValidate" value="验证" onclick="Validate()"/>
+                        <input type="button" value="选择的方向" onclick="AD()"/>
+                        <br/>
+                        <label id="label2">
+                            邮编: <input type="text" id="txt_def" placeholder="请输入邮箱" list="greetings" autocomplete=""/>
+                            <datalist id="greetings" style="display:none">
+                                <option>123456@qq.com</option>
+                                <option>abcdef@outlook.com</option>
+                            </datalist>
+                        </label>
+                        <input type="button" value="设置默认值" onclick="setValue()"/>
+                        <br/>
+                        <label for="pat1">输入符合正则表达式[A-Z]{3}的内容</label>
+                        <input id="pat1" pattern="[A-Z]{3}"/>
+                        <input type="submit"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>SQL 基础教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL1_1.html">
+                            SQL 基础命令
+                        </a>
+                    </li>
+                </ul>
+                <h2>SQL 高级教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL2_1.html">
+                            SQL Top
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_2.html">
+                            SQL Like
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_3.html">
+                            SQL 通配符
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_4.html">
+                            SQL In
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="SQL2_5.html">
+                            SQL Between
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_6.html">
+                            SQL Alias
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_7.html">
+                            SQL JOIN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_8.html">
+                            SQL Union
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>SQL BETWEEN 操作符</h1>
+                <hr/>
+                <h2>BETWEEN 操作符</h2>
+                <p>操作符 BETWEEN ... AND 会选取介于两个值之间的数据范围。这些值可以是数值、文本或者日期。</p>
+                <h3>SQL IN 语法</h3>
+                <pre>SELECT column_name(s)
+FROM table_name
+WHERE column_name
+BETWEEN value1 AND value2</pre>
+                <hr/>
+                <h3>实例 1：</h3>
+                <p>如需以字母顺序显示介于 "Adams"（包括）和 "Carter"（包括）之间的人，请使用下面的 SQL：</p>
+                <pre class="code">+----------+----------+-----------+----------------+----------+
+| PersonID | LastName | FirstName | Address        | City     |
++----------+----------+-----------+----------------+----------+
+|        1 | Adams    | John      | Oxford Street  | London   |
+|        2 | Bush     | George    | Fifth Avenue   | New York |
+|        3 | Carter   | Thomas    | Changan Street | Beijing  |
+|        4 | Gates    | Bill      | Xuanwumen 10   | Beijing  |
++----------+----------+-----------+----------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> <span class="fc">select * from persons where lastname between 'adams' and 'carter';</span>
++----------+----------+-----------+----------------+----------+
+| PersonID | LastName | FirstName | Address        | City     |
++----------+----------+-----------+----------------+----------+
+|        1 | Adams    | John      | Oxford Street  | London   |
+|        2 | Bush     | George    | Fifth Avenue   | New York |
+|        3 | Carter   | Thomas    | Changan Street | Beijing  |
++----------+----------+-----------+----------------+----------+</pre>
+                <p><span class="note">注意事项: </span>不同的数据库对 BETWEEN...AND 操作符的处理方式是有差异的。某些数据库会列出介于 "Adams" 和 "Carter"
+                    之间的人，但不包括 "Adams" 和 "Carter" ；某些数据库会列出介于 "Adams" 和 "Carter" 之间并包括 "Adams" 和 "Carter" 的人；而另一些数据库会列出介于
+                    "Adams" 和 "Carter" 之间的人，包括 "Adams" ，但不包括 "Carter" 。</p>
+                <p>所以，请检查你的数据库是如何处理 BETWEEN....AND 操作符的！</p>
+                <hr/>
+                <h3>实例 2：</h3>
+                <p>如需使用上面的例子显示范围之外的人，请使用 NOT 操作符：</p>
+                <pre class="code">mysql> <span class="fc">select * from persons where lastname not between 'adams' and 'carter';</span>
++----------+----------+-----------+--------------+---------+
+| PersonID | LastName | FirstName | Address      | City    |
++----------+----------+-----------+--------------+---------+
+|        4 | Gates    | Bill      | Xuanwumen 10 | Beijing |
++----------+----------+-----------+--------------+---------+</pre>
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

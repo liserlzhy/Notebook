@@ -1,0 +1,324 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>Arduino Note</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino1_1.html">
+                            Arduino 笔记
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_2.html">
+                            电子元器件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino1_3.html">
+                            代码小结
+                        </a>
+                    </li>
+                </ul>
+                <h2>Arduino 智能小车</h2>
+                <ul>
+                    <li>
+                        <a href="Arduino2_1.html">
+                            Arduino小车 测试篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_2.html">
+                            Arduino小车 蓝牙篇
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="Arduino2_3.html">
+                            Arduino小车 测速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_4.html">
+                            Arduino小车 调速篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Arduino2_5.html">
+                            Arduino小车 避障篇
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>Arduino 智能小车————测速篇</h1>
+                <p>可以用于测速的模块很多，比如加速度计、激光、超声波、编码器等等，由于我们对小车速度的测量精度要求不高，因此我们可以借助小车套件里面的码盘配上测速模块对其速度进行测量。</p>
+                <h2>准备材料</h2>
+                <h3>测速模块 </h3>
+                <p>网上的测速模块有很多种外观，但是其工作原理类似，下面列出来了几种常见的测速模块，这些测速模块接线类似。 </p>
+                <div class="centre"><img class="shrink" src="../../IMAGE/cesu1.jpg"/></div>
+                <div class="centre"><img class="shrink" src="../../IMAGE/cesu2.png"/></div>
+                <p>以上两种模块只能对一路电机的速度进行测量，下面这个可以同时测量两路电机，但是由于其间距固定，在安装时可能不兼容不同小车底盘，因此为了安装方便，在此篇教程中使用第一种模块。 </p>
+                <div><img src="../../IMAGE/cesu3.png"/></div>
+                <h3>固定铜柱</h3>
+                <p>建议铜柱长度30CM，大小为M3 </p>
+                <div><img src="../../IMAGE/tongp.png"/></div>
+                <p>
+                    由于铜柱导电，有些电路板如果固定孔设计不当的话很容易导致电路板烧坏，尤其是在以后的项目中可能会用到更高的电压，因此在这里我建议大家可以准备一些尼龙柱来固定电路板。尼龙柱的尺寸跟铜柱尺寸相同M3，30CM。大家也可以顺便买一点尼龙螺丝。</p>
+                <div><img class="shrink" src="../../IMAGE/nilong.png"/></div>
+                <h2>测速模块的安装</h2>
+                <p>驱动模块的安装需要由尼龙柱支撑 </p>
+                <div><img class="shrink" src="../../IMAGE/zcheng.jpg"/></div>
+                <p>驱动模块安装时需要注意，不能影响轮子的正常工作，不能触碰到轮轴上的码盘。 </p>
+                <p>
+                    编码器上有三个引脚分别是“VCC”,“GND”,“OUT”。左右两边两个测速模块的“VCC”引脚接电源或开发板的“5V”或“3.3V”引脚,“GND”接电源或开发板的“GND”引脚，左边测速模块“OUT”接开发板的“3”引脚，右边测速模块“OUT”接开发板的“2”引脚。引脚接错的话可以再随后调试过程中换过来，也可以在代码里更改。 </p>
+                <div><img class="shrink" src="../../IMAGE/cesulx.jpg"/></div>
+                <h2>测速模块讲解</h2>
+                <p>
+                    测速模块的工作原理比较简单，如下图所示，在于电机同轴的码盘上有很多开孔（光栅），编码器相当于光敏元件。码盘随着小车轮子的运动转动时，码盘（光栅）会不断遮挡光敏元件发出的光波，这时候编码器就会根据光栅的遮挡不断的产生方波信号，方波信号会从“OUT”引脚输出，我们只需不断检测“OUT”引脚的输出，根据方波信号的周期简介计算出小车运行的速度。小车上使用的码盘（光栅）精度不高，在某些高精度的编码器上光栅会更加密集，测量效果会更好。 </p>
+                <div><img src="../../IMAGE/cesuyl.jpg"/></div>
+                <p>由于要不断检测编码器输出端的输出，因此我们需要借助Arduino的外部中断来读取编码器的输出。Arduino开发板外部中断对应的引脚如下：</p>
+                <table>
+                    <tr>
+                        <th>型号</th>
+                        <th>int0</th>
+                        <th>int1</th>
+                        <th>int2</th>
+                        <th>int3</th>
+                        <th>int4</th>
+                        <th>int5</th>
+                    </tr>
+                    <tr>
+                        <td>UNO\Ethernet</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Mega2560</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>21</td>
+                        <td>20</td>
+                        <td>19</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>Leonardo</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Due</td>
+                        <td>All</td>
+                        <td>All</td>
+                        <td>All</td>
+                        <td>All</td>
+                        <td>All</td>
+                        <td>All</td>
+                    </tr>
+                </table>
+                <p>由表中可以知道在此我们使用的Arduino UNO只有“2”，“3”引脚可以触发外部中断，因此在接线的时候我们便将左右两边的输出“OUT”引脚分别接在“2”“3”引脚上。 </p>
+                <p>在程序初始化阶段中调用函数<span class="note">attachInterrupt(interrupt, function, mode)</span>可以对中断引脚初始化，其中 </p>
+                <p><span class="note">interrupt：</span>要初始化的外部中断编号，由上表可知我们Arduino UNO只能使用外部中断0和外部中断1； </p>
+                <p><span class="note">function：</span>中断服务函数的名字，即当外部中断被触发时，将会自动调用这个函数；</p>
+                <p><span class="note">mode：</span>中断触发的方式，可选方式如下</p>
+                <table>
+                    <tr>
+                        <th>mode</th>
+                        <th>含义</th>
+                    </tr>
+                    <tr>
+                        <td>LOW</td>
+                        <td>低电平触发</td>
+                    </tr>
+                    <tr>
+                        <td>CHANGE</td>
+                        <td>电平变化，高电平变低电平、低电平变高电平</td>
+                    </tr>
+                    <tr>
+                        <td>RISING</td>
+                        <td>上升沿触发</td>
+                    </tr>
+                    <tr>
+                        <td>FALLING</td>
+                        <td>下降沿触发</td>
+                    </tr>
+                    <tr>
+                        <td>HIGH</td>
+                        <td>高电平触发(该中断模式仅适用于Arduino due)</td>
+                    </tr>
+                </table>
+                <h2>测试代码如下</h2>
+                <pre>int leftCounter=0,  rightCounter=0;
+unsigned long time = 0, old_time = 0; <span class="annotation">// 时间标记</span>
+unsigned long time1 = 0; <span class="annotation">// 时间标记</span>
+float lv,rv;<span class="annotation">//左、右轮速度</span>
+
+#define STOP      0
+#define FORWARD   1
+#define BACKWARD  2
+#define TURNLEFT  3
+#define TURNRIGHT 4
+
+int leftMotor1 = 4;
+int leftMotor2 = 5;
+int rightMotor1 = 6;
+int rightMotor2 = 7;
+
+void setup() {
+  <span class="annotation">// put your setup code here, to run once:</span>
+  Serial.begin(9600); 
+  attachInterrupt(0,RightCount_CallBack, FALLING);
+  attachInterrupt(1,LeftCount_CallBack, FALLING);
+
+  pinMode(leftMotor1, OUTPUT);
+  pinMode(leftMotor2, OUTPUT);
+  pinMode(rightMotor1, OUTPUT);
+  pinMode(rightMotor2, OUTPUT);
+}
+
+void loop() {
+  <span class="annotation">// put your main code here, to run repeatedly:</span>
+  SpeedDetection();
+  if(Serial.available()>0)
+  {
+    char cmd = Serial.read();
+
+    Serial.print(cmd);
+    motorRun(cmd);
+
+  }  
+}
+<span class="annotation">/*
+ * *速度计算
+ */</span>
+bool SpeedDetection()
+{
+  time = millis();<span class="annotation">//以毫秒为单位，计算当前时间 </span>
+  if(abs(time - old_time) >= 1000) <span class="annotation">// 如果计时时间已达1秒</span>
+  {  
+    detachInterrupt(0); <span class="annotation">// 关闭外部中断0</span>
+    detachInterrupt(1); <span class="annotation">// 关闭外部中断1</span>
+    <span class="annotation">//把每一秒钟编码器码盘计得的脉冲数，换算为当前转速值</span>
+    <span class="annotation">//转速单位是每分钟多少转，即r/min。这个编码器码盘为20个空洞。</span>
+    lv =(float)leftCounter*60/20;<span class="annotation">//小车车轮电机转速</span>
+    rv =(float)rightCounter*60/20;<span class="annotation">//小车车轮电机转速</span>
+    Serial.print("left:");
+    Serial.print(lv);<span class="annotation">//向上位计算机上传左车轮电机当前转速的高、低字节</span>
+    Serial.print("     right:");
+    Serial.println(rv);<span class="annotation">//向上位计算机上传左车轮电机当前转速的高、低字节</span>
+    <span class="annotation">//恢复到编码器测速的初始状态</span>
+    leftCounter = 0;   <span class="annotation">//把脉冲计数值清零，以便计算下一秒的脉冲计数</span>
+    rightCounter = 0;
+    old_time=  millis();     <span class="annotation">// 记录每秒测速时的时间节点</span>
+    attachInterrupt(0, RightCount_CallBack,FALLING); <span class="annotation">// 重新开放外部中断0</span>
+    attachInterrupt(1, LeftCount_CallBack,FALLING); <span class="annotation">// 重新开放外部中断0</span>
+    return 1;
+  }
+  else
+    return 0;
+}
+<span class="annotation">/*
+ * *右轮编码器中断服务函数
+ */</span>
+void RightCount_CallBack()
+{
+  rightCounter++;
+}
+<span class="annotation">/*
+ * *左轮编码器中断服务函数
+ */</span>
+void LeftCount_CallBack()
+{
+  leftCounter++;
+}
+<span class="annotation">/*
+ * *小车运动控制函数
+ */</span>
+void motorRun(int cmd)
+{
+  switch(cmd){
+    case FORWARD:
+      Serial.println("FORWARD"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     case BACKWARD:
+      Serial.println("BACKWARD"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNLEFT:
+      Serial.println("TURN  LEFT"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, HIGH);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, HIGH);
+      break;
+     case TURNRIGHT:
+      Serial.println("TURN  RIGHT"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, HIGH);
+      digitalWrite(rightMotor1, HIGH);
+      digitalWrite(rightMotor2, LOW);
+      break;
+     default:
+      Serial.println("STOP"); <span class="annotation">//输出状态</span>
+      digitalWrite(leftMotor1, LOW);
+      digitalWrite(leftMotor2, LOW);
+      digitalWrite(rightMotor1, LOW);
+      digitalWrite(rightMotor2, LOW);
+  }
+}</pre>
+                <h2>测速效果</h2>
+                <p>借助于蓝牙串口助手我们可以清楚的看到小车左右轮的转速如图，由于电机自身的误差和摩擦力的作用，因此两个轮子的转速不相等，但是差别不是很大。</p>
+                <div><img class="shrink" src="../../IMAGE/cesuxg.jpg"/></div>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>SQL 基础教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL1_1.html">
+                            SQL 基础命令
+                        </a>
+                    </li>
+                </ul>
+                <h2>SQL 高级教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL2_1.html">
+                            SQL Top
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_2.html">
+                            SQL Like
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_3.html">
+                            SQL 通配符
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="SQL2_4.html">
+                            SQL In
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_5.html">
+                            SQL Between
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_6.html">
+                            SQL Alias
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_7.html">
+                            SQL JOIN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_8.html">
+                            SQL Union
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+
+
+                <h1>SQL IN 操作符</h1>
+                <hr/>
+                <h2>IN 操作符</h2>
+                <p>IN 操作符允许我们在 WHERE 子句中规定多个值。</p>
+                <h3>SQL IN 语法</h3>
+                <pre>SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1,value2,...)</pre>
+                <hr/>
+                <h3>实例：</h3>
+                <pre class="code">mysql> select * from persons;
++----------+----------+-----------+----------------+----------+
+| PersonID | LastName | FirstName | Address        | City     |
++----------+----------+-----------+----------------+----------+
+|        1 | Adams    | John      | Oxford Street  | London   |
+|        2 | Bush     | George    | Fifth Avenue   | New York |
+|        3 | Carter   | Thomas    | Changan Street | Beijing  |
++----------+----------+-----------+----------------+----------+
+3 rows in set (0.02 sec)
+
+mysql> <span class="fc">select * from persons where personid in (1,2);</span>
++----------+----------+-----------+---------------+----------+
+| PersonID | LastName | FirstName | Address       | City     |
++----------+----------+-----------+---------------+----------+
+|        1 | Adams    | John      | Oxford Street | London   |
+|        2 | Bush     | George    | Fifth Avenue  | New York |
++----------+----------+-----------+---------------+----------+</pre>
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

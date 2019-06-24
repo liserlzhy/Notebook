@@ -1,0 +1,273 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>JavaScript</h2>
+                <ul>
+                    <li>
+                        <a href="JavaScript1_1.html">
+                            JavaScript 基础
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_2.html">
+                            异常捕获
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="JavaScript1_3.html">
+                            DOM
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_4.html">
+                            JS 事件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_5.html">
+                            JS 对象
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_6.html">
+                            JS 面向对象
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>DOM</h1>
+                <hr/>
+                <p>当网页被加载时，浏览器会创建页面的文档对象模型(Document Object Model),如下图所示:</p>
+                <div class="centre"><img style="width:50%;height:50%;" src="../../IMAGE/Dom.png"/></div>
+                <h2>DOM 操作 HTML</h2>
+                <ol>
+                    <li>改变 HTML 输出流:
+                        <p>注意: 绝对不要在文档加载完成后使用 document.write()。这会覆盖该文档</p>
+                    </li>
+                    <li>查找元素:
+                        <p>通过id: document.getElementById("id_name");</p>
+                        <p>通过标签: document.getElementByTagName("p");//相同元素的第一个</p>
+                    </li>
+                    <li>改变 HTML 内容:
+                        <p>使用属性: innerHTML</p>
+                        <pre>function demo(){
+    var nv = document.getElementById("id_name");
+    nv.innerHTML = "world";
+}</pre>
+                    </li>
+                </ol>
+                <div class="demoParent">
+                        <pre class="code"> &lt;script&gt;
+var i = 0;
+function switchP() {
+    i++;
+    f = document.getElementById("swPhoto");
+    g = document.getElementById("btn");
+    if(i%2==0){
+        f.src = "../../IMAGE/bugirl1.gif";
+        g.style.background = "#5d7492";
+    }else{
+        f.src = "../../IMAGE/bugirl2.gif";
+        g.style.background = "#192965";
+    }
+}
+&lt;/script&gt;</pre>
+                    <div class="demoPosition">
+                        <script>
+                            var i = 0;
+
+                            function switchP() {
+                                i++;
+                                f = document.getElementById("swPhoto");
+                                g = document.getElementById("btn");
+                                if (i % 2 == 0) {
+                                    f.src = "../../IMAGE/bugirl1.gif";
+                                    g.style.background = "#5d7492";
+                                } else {
+                                    f.src = "../../IMAGE/bugirl2.gif";
+                                    g.style.background = "#192965";
+                                }
+                            }
+                        </script>
+                        <button id="btn" onclick="switchP()"
+                                style="outline:none;background-color:#5d7492;box-shadow:3px 3px 5px #3f5d59;border-radius:30px;width:70px;height:30px;color:white;">
+                            切换图片
+                        </button>
+                        <br/>
+                        <img id="swPhoto" src="../../IMAGE/bugirl1.gif"/>
+                    </div>
+                    <h3>方法:</h3>
+                    <table>
+                        <tr>
+                            <th>方法</th>
+                            <th>描述</th>
+                        </tr>
+                        <tr>
+                            <td>getElementByName()</td>
+                            <td>获取 name</td>
+                        </tr>
+                        <tr>
+                            <td>getElementByTagName()</td>
+                            <td>获取元素</td>
+                        </tr>
+                        <tr>
+                            <td>getAttribute()</td>
+                            <td>获取元素属性</td>
+                        </tr>
+                        <tr>
+                            <td>setAttribute()</td>
+                            <td>设置元素属性</td>
+                        </tr>
+                        <tr>
+                            <td>childNodes</td>
+                            <td>访问子节点</td>
+                        </tr>
+                        <tr>
+                            <td>parentNode</td>
+                            <td>访问父节点</td>
+                        </tr>
+                        <tr>
+                            <td>createElement()</td>
+                            <td>创建元素节点</td>
+                        </tr>
+                        <tr>
+                            <td>createTextNode</td>
+                            <td>创建文本节点</td>
+                        </tr>
+                        <tr>
+                            <td>insertBefore()</td>
+                            <td>插入节点</td>
+                        </tr>
+                        <tr>
+                            <td>removeChild()</td>
+                            <td>删除节点</td>
+                        </tr>
+                        <tr>
+                            <td>offsetHeight</td>
+                            <td>网页尺寸</td>
+                        </tr>
+                        <tr>
+                            <td>scrollHeight</td>
+                            <td>网页尺寸</td>
+                        </tr>
+                    </table>
+                    <h3>实例</h3>
+                    <pre class="code">&lt;div id="Div"&gt;&lt;/div&gt;
+&lt;script&gt;
+    function createNodeA() {
+        var div = document.getElementById("Div");
+        var input = document.createElement("input");
+        input.type = "button";
+        input.value = "newBTN";
+        input.id = "btnt";
+        div.appendChild(input);
+    }
+    function addNodeB() {
+        var div = document.getElementById("Div");
+        var bt = document.getElementById("btnt");
+        var newNode = document.createElement("p");
+        newNode.innerHTML = "button 前面的段落";
+        div.insertBefore(newNode,bt);
+    }
+    <span class="h_annotation">/*删除子节点*/</span>
+    function removeNode() {
+        var div = document.getElementById("Div");
+        <span class="h_annotation">//document.write(div.childNodes.length);//子节点长度，后面的空格也会算</span>
+        div.removeChild(div.childNodes[1]);
+
+    }
+    <span class="h_annotation">/*获取网页尺寸*/</span>
+    function getSize() {
+        var width = document.body.offsetWidth||document.documentElement.offsetWidth; <span class="h_annotation">/*为了兼容性*/</span>
+        var height = document.documentElement.offsetHeight;
+        alert(width+" , "+height);
+    }
+    createNodeA();
+    addNodeB();
+    <span class="h_annotation">//removeNode();</span>
+    <span class="h_annotation">//getSize();</span>
+&lt;/script&gt;</pre>
+                    <hr/>
+                    <h2>DOM EventListener</h2>
+                    <ol>
+                        <li>DOM EventListener 方法:
+                            <p>addEventListener(): 用于指定元素添加事件句柄</p>
+                            <p>removeEventListener(): 移除方法添加的事件句柄</p>
+                        </li>
+                        <li></li>
+                    </ol>
+                    <div class="demoParent">
+                            <pre class="code">&lt;button id="jb_btn"&gt;句柄测试&lt;/button&gt;
+&lt;script&gt;
+    var j = document.getElementById("jb_btn");
+    j.addEventListener("click",function () {alert("How are you?");});
+    j.addEventListener("click",jb_f1);
+    <span class="h_annotation">&lt;!--j.removeEventListener("click",jb_f1);--&gt;</span>
+    function jb_f1() {
+        alert("I am fine.");
+    }
+&lt;/script&gt;</pre>
+                        <div class="demoPosition">
+                            <button id="jb_btn">句柄测试</button>
+                            <script>
+                                var j = document.getElementById("jb_btn");
+                                j.addEventListener("click", function () {
+                                    alert("How are you?");
+                                });
+                                j.addEventListener("click", jb_f1);
+
+                                function jb_f1() {
+                                    alert("I am fine.");
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

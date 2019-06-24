@@ -1,0 +1,296 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body onload="dateTime()">
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>JavaScript</h2>
+                <ul>
+                    <li>
+                        <a href="JavaScript1_1.html">
+                            JavaScript 基础
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_2.html">
+                            异常捕获
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_3.html">
+                            DOM
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_4.html">
+                            JS 事件
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="JavaScript1_5.html">
+                            JS 对象
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_6.html">
+                            JS 面向对象
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JS 对象</h1>
+                <hr/>
+                <h2>什么是对象:</h2>
+                <p>JavaScript 中的所有实物都是对象: 字符串、数值、数组、函数 ...</p>
+                <p>每个对象都带有属性和方法</p>
+                <hr/>
+                <h2>创建对象</h2>
+                <pre>&lt;script&gt;
+    <span class="h_annotation">/*通过new创建对象*/</span>
+    people = new Object();
+    people.name = "Tom";
+    people.age = "12";
+    document.write("name: "+people.name+",age: "+people.age);
+
+    <span class="h_annotation">/*直接赋值创建对象*/</span>
+    people = {name:"John",age:"21"};
+
+    <span class="h_annotation">/*通过函数创建对象*/</span>
+    function people(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    son = new people("pig",32);
+    document.write("name: "+son.name+", age: "+son.age);
+&lt;/script&gt;</pre>
+                <hr/>
+                <h2>String 字符串对象</h2>
+                String 对象用于处理已有的字符串,常用的有:
+                <p>在字符串中查找字符串: indexOf()</p>
+                <p>内容匹配: match()</p>
+                <p>更换内容: replace()</p>
+                <p>字符串大小写转换: toUpperCase()/toLowerCase()</p>
+                <p>字符串转换为数组: strong>split()</p>
+                <pre>&lt;script&gt;
+    var str = "Hello world";
+    document.write("字符串长度:"+str.length);
+    document.write(str.indexOf("world"));<span class="h_annotation">&lt;!--返回 6，不匹配返回 -1 --&gt;</span>
+    document.write(str.match("world"));<span class="h_annotation">&lt;!--返回 world，不匹配返回 null --&gt;</span>
+    document.write(str.replace("World","everyone"));<span class="h_annotation">&lt;!--返回 Hello everyone--&gt;</span>
+    document.write(str.toUpperCase());<span class="h_annotation">&lt;!--全部转换为大写--&gt;</span>
+
+    var s = str.split(" ");<span class="h_annotation">&lt;!--以空格分割--&gt;</span>
+    document.write(s[1]);
+&lt;/script&gt;</pre>
+                字符串属性和方法:
+                <p>属性: length、prototype、constructor</p>
+                <p>方法:
+                    charAt()、charCodeAt()、concat()、fromCharCode()、indexOf()、lastIndexOf()、match()、replace()、search()、slice()、substring()、substr()、valueOf()、toLowerCase()、toUpperCase()、split()</p>
+                <hr/>
+                <h2>Date 对象</h2>
+                Date 对象:
+                <p>日期对象用于处理日期和时间</p>
+                <p>获得当日的日期: var date = new Date(); document.write(date);</p>
+                常用方法:
+                <p>getFullYear: 获得年份</p>
+                <p>getTime: 获取毫秒，从时间戳到现在的毫秒数</p>
+                <p>setFullYear(): 设置具体日期。如: date.setFullYear(2020,1,1);</p>
+                <p>getDay(): 获取星期</p>
+                <p>toLocaleDateString(): 年月日</p>
+                <p>toLocaleTimeString(): 时分秒</p>
+                <h3>实例:</h3>
+                <div style="position: relative;">
+                          <pre class="code">&lt;body onload="dateTime()"&gt;
+    &lt;script&gt;
+        function  dateTime() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            m = setTwo(m);
+            s = setTwo(s);
+            document.getElementById("time").innerHTML=h+":"+m+":"+s;
+            setTimeout(dateTime,500)
+        }
+
+        function setTwo(i) {
+            if(i&lt;10){
+                i = "0"+i;
+            }
+            return i;
+        }
+    &lt;/script&gt;
+    &lt;div id="time" style="color:white;"&gt;&lt;/div&gt;
+&lt;body&gt;</pre>
+                    <div style="position:absolute;right:50px;top:50px;">
+                        <script>
+                            function dateTime() {
+                                var date = new Date();
+                                var h = date.getHours();
+                                var m = date.getMinutes();
+                                var s = date.getSeconds();
+                                m = setTwo(m);
+                                s = setTwo(s);
+                                document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+                                setTimeout(dateTime, 500)
+                            }
+
+                            function setTwo(i) {
+                                if (i < 10) {
+                                    i = "0" + i;
+                                }
+                                return i;
+                            }
+                        </script>
+                        <div id="time" style="color:#69a2b4;"></div>
+                    </div>
+                    <hr/>
+                    <h2>Array 数组对象</h2>
+                    数组的创建：
+                    <p>var myArray = ["Hello","iwen","ime"];</p>
+                    数组的常用方法:
+                    <p>concat(): 合并数组</p>
+                    <p>sort(): 排序</p>
+                    <p>push(): 末尾追加元素</p>
+                    <p>reverse(): 数组元素翻转</p>
+                    <pre>var a = ["5","3","9","2"];
+<span class="h_annotation">//document.write(a.sort()); //升序</span>
+document.write(a.sort(function(a,b){
+    return a-b;<span class="h_annotation">//升序</span>
+    return b-a;<span class="h_annotation"></span>
+
+    a.push("6");<span class="h_annotation">//末尾追加</span>
+    document.write(a.reverse());<span class="h_annotation">//翻转</span>
+}));</pre>
+                    <hr/>
+                    <h2>Math 对象</h2>
+                    <p>执行常见的算数任务</p>
+                    常用方法:
+                    <p>round(): 四舍五入</p>
+                    <p>random(): 返回 0~1之间的随机数</p>
+                    <p>max(): 返回最高值。</p>
+                    <p>min(): 返回最低值。</p>
+                    <p>abs(): 返回绝对值。</p>
+                    <hr/>
+                    <h2>浏览器对象</h2>
+                    <h3>window 对象:</h3>
+                    <p>window 对象是 BOM 的核心，window 对象指当前的浏览器窗口</p>
+                    <p>所有 JavaScript 全局对象、函数以及变量均自动成为 window d对象的成员</p>
+                    <p>全局变量是 window 对象的属性</p>
+                    <p>全局函数 是 window 对象的方法</p>
+                    <p>甚至 HTML DOM 的 document 也是 window 对象的属性之一</p>
+                    window 尺寸：
+                    <p>window.innerHeight - 浏览器窗口的内部高度，不包括工具栏和滚动条</p>
+                    <p>window.innerWidth - 浏览器窗口的内部宽度</p>
+                    window 方法:
+                    <p>window.open() - 打开新窗口。</p>
+                    <p>window. close() - 关闭当前窗口</p>
+                    例如：
+                    <pre>window.open("xx.html","windowname","height = 200,width = 200,top = 100,left = 100,toolbar = no,menubar = no");</pre>
+                    <h3>计时器:</h3>
+                    计时事件:
+                    <p>通过使用 JavaScript,我们有能力做到在一个设定的时间间隔之后执行代码，而不是在函数调用后立即执行，我们称之为计时事件</p>
+                    计时方法：
+                    <p>setInterval() - 间隔指定的毫秒数不停地执行指定的代码</p>
+                    <p>——clearInterval() - 用于停止 setInterval() 方法执行的函数代码</p>
+                    <p>setTimeout() - 暂停指定的毫秒数后执行指定的代码</p>
+                    <p>——clearTimeout() - 用于停止执行 setTimeout() 方法的函数代码</p>
+                    实例：
+                    <pre class="code">&lt;p id="ptime"&gt;&lt;/p&gt;
+&lt;button onclick="stopTime()"&gt;停止&lt;/button&gt;
+&lt;script&gt;
+    var myTime = setInterval(function () {
+        getTime();
+    },1000);
+    function getTime() {
+        var date = new Date();
+        var t = date.toLocaleString();
+        document.getElementById("ptime").innerHTML = t;
+    }
+    function stopTime() {
+        clearInterval(myTime);
+    }
+    getTime();
+&lt;/script&gt;</pre>
+                    <h3>History 对象</h3>
+                    History 对象:
+                    <p>window.history 对象包含浏览器的历史 (url) 的集合</p>
+                    History 方法:
+                    <p>history.back() - 与在浏览器点击后退按钮相同</p>
+                    <p>history.forward() - 与在浏览器中单击按钮向前相同</p>
+                    <p>history.go() - 进入历史中的某个页面</p>
+                    <pre class="code">&lt;form&gt;
+   &lt;input type="text" id="username"/&gt;
+   &lt;button id="btn" onclick="safe();return false;"&gt;登录&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+   function safe() {
+       var v = document.getElementById("username").value;
+       if(v == "hello"){
+           window.history.go(-1);
+       }else{
+           alert("输入错误");
+       }
+   }
+&lt;/script&gt;</pre>
+                    <h3>Location 对象</h3>
+                    Location 对象:
+                    <p>window.location 对象用于获得当前页面的地址（URL），并把浏览器重定向到新的页面。</p>
+                    Location 对象的属性:
+                    <p>location.hostname - 返回 web 主机的域名</p>
+                    <p>location.pathname - 返回当前页面的路径和文件名</p>
+                    <p>location.port - 返回 web 主机的端口</p>
+                    <p>location.protocol - 返回所使用的 web 协议 (http:// 或 https://)</p>
+                    <p>location.href - 属性返回当前页面的 URL</p>
+                    <p>location.assign() - 方法加载新的文档</p>
+                    <h3>Screen 对象</h3>
+                    <p>window.screen 对象包含有关用户屏幕的信息</p>
+                    属性:
+                    <p>screen.availWidth - 可用的屏幕宽度</p>
+                    <p>screen.availHeight - 可用的屏幕高度</p>
+                    <p>screen.height - 屏幕高度</p>
+                    <p>screen.width - 屏幕宽度</p>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

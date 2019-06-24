@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src="../../JS/jquery.js"></script>
+    <script src="../../JS/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../CSS/jquery.mobile-1.4.5.min.css"/>
+    <script>
+        $(document).ready(function () {
+            $("#a").on("tap",function () {
+                alert("hello");
+            });
+            $(document).on("scrollstop",function () {
+                alert("why scroll stop?");
+            });
+            $(document).on("swipeleft",function () {
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h1>首页</h1>
+            <a href="mobile1.html">返回</a>
+        </div>
+        <div data-role="content">
+            <ul data-filter="true" data-role="listview" data-inset="true" data-icon="false">
+                <li id="a"><a>one</a></li>
+                <li><a>two</a></li>
+                <li><a>three</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" >好友</a></li>
+                    <li><a href="#">个人中心</a> </li>
+                    <li><a href="#">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

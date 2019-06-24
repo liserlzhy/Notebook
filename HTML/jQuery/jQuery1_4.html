@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li>
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li class="current">
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JQuery 扩展</h1>
+                <hr/>
+                <h2>实例</h2>
+                ========== myjQuery.js =============
+                <pre>$.myjq = function () {
+    alert("hello myjQuery");
+};
+
+$.fn.myjq = function () {
+    $(this).text("hello myjQuery");
+};</pre>
+                ========== index.js ================
+                <pre>&lt;script src="../../JS/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="myjQuery.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(document).ready(function () {
+        <span class="h_annotation">//$.myjq();</span>
+        $("body").myjq();
+    });
+&lt;/script&gt;</pre>
+                <hr/>
+                <h2>美元符号冲突问题</h2>
+                <pre>&lt;script&gt;
+    $.noConflict();
+    jQuery(document).ready(function () {
+       jQuery("#btn").click(function () {
+           alert("hello");
+       });
+    });
+&lt;/script&gt;</pre>
+                <pre>&lt;script&gt;
+    var jQ = $.noConflict();
+    jQ(document).ready(function () {
+       jQ("#btn").click(function () {
+           alert("hello");
+       });
+    });
+&lt;/script&gt;</pre>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

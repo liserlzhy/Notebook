@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+	</head>
+	<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>SQL 基础教程</h2>
+                <ul>
+                    <li>
+                        <a href="SQL1_1.html">
+                            SQL 基础命令
+                        </a>
+                    </li>
+                </ul>
+                <h2>SQL 高级教程</h2>
+                <ul>
+                    <li class="current">
+                        <a href="SQL2_1.html">
+                            SQL Top
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_2.html">
+                            SQL Like
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_3.html">
+                            SQL 通配符
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_4.html">
+                            SQL In
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_5.html">
+                            SQL Between
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_6.html">
+                            SQL Alias
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_7.html">
+                            SQL JOIN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="SQL2_8.html">
+                            SQL Union
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>SQL TOP字句</h1>
+                <hr/>
+                <p>Top子句用于规定要返回的记录的数目。</p>
+                <p><span class="note">注释: </span>并非所有的数据库系统都支持 TOP 子句。MySQL不支持，可用limit替代</p>
+                <hr/>
+                <h3>SQL Server 的语法:</h3>
+                <pre>SELECT TOP number|percent column_name(s)
+FROM table_name</pre>
+                <h3>实例：</h3>
+                <pre>SELECT TOP 2 * FROM Persons
+SELECT TOP 50 PERCENT * FROM Persons</pre>
+            </div>
+
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+		
+	
+	</body>
+</html>

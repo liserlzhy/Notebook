@@ -1,0 +1,154 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body onload="dateTime()">
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>JavaScript</h2>
+                <ul>
+                    <li>
+                        <a href="JavaScript1_1.html">
+                            JavaScript 基础
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_2.html">
+                            异常捕获
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_3.html">
+                            DOM
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_4.html">
+                            JS 事件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_5.html">
+                            JS 对象
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="JavaScript1_6.html">
+                            JS 面向对象
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JS 面向对象</h1>
+                <hr/>
+                <h2>什么是对象:</h2>
+                1、面向对象的概念:
+                <p>1): 一切事物皆对象</p>
+                <p>2): 对象具有封装和继承特性</p>
+                <p>3): 信息隐藏</p>
+                <h3>第一种创建对象的方法</h3>
+                <pre class="code"> <span class="h_annotation">//基本面向对象</span>
+var person={
+   name:"jwen",
+   age:30,
+   eat:function () {
+       alert("can eat");
+   }
+};</pre>
+                <h3>第二种</h3>
+                <pre class="code"><span class="h_annotation">//函数构造器构造对象</span>
+(function () {
+   function Person(name) {
+       this._name = name;
+   }
+
+   Person.prototype.say = function () {
+       alert("person-say()"+this._name);
+   };
+   window.Person = Person;
+}());
+
+<span class="h_annotation">//Student继承person</span>
+(function () {
+   function Student(name) {
+       this._name = name;
+   }
+   Student.prototype = new Person();<span class="h_annotation">//继承</span>
+   var superSsay = Student.prototype.say;
+   Student.prototype.say = function () { <span class="h_annotation">//创建自己的say()</span>
+       superSsay.call(this);<span class="h_annotation">//调用父类的say()</span>
+       alert("student_say()"+this._name);
+   };
+   window.Student = Student;
+}());
+
+var s = new Student("liser");
+s.say();</pre>
+                <h3>第三种</h3>
+                <pre class="code">(function () {
+   function Person(name) {
+       var _this = {};
+       _this._name = name;
+       _this.say = function () {
+           alert("Person-say()");
+       };
+       return _this;
+   }
+   window.Person = Person;
+}());
+
+
+function Student(name) {
+   var _this = Person(name);
+   var supperSay = _this.say;
+   _this.say = function () {
+       supperSay.call(_this);
+       alert("Student-say()"+_this._name);
+   };
+   return _this;
+}
+var s = Student("Tom");
+s.say();</pre>
+            </div>
+        </div>
+    </div>
+            <div id="footer">
+			</div>
+		</div>
+	</body>
+</html>

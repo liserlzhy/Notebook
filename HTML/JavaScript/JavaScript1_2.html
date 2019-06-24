@@ -1,0 +1,139 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li>
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+
+                <h2>JavaScript</h2>
+                <ul>
+                    <li>
+                        <a href="JavaScript1_1.html">
+                            JavaScript 基础
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="JavaScript1_2.html">
+                            异常捕获
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_3.html">
+                            DOM
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_4.html">
+                            JS 事件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_5.html">
+                            JS 对象
+                        </a>
+                    </li>
+                    <li>
+                        <a href="JavaScript1_6.html">
+                            JS 面向对象
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JavaScript 异常捕获</h1>
+                <hr/>
+                <h2>介绍</h2>
+                <ol>
+                    <li>异常:
+                        <p>当 JavaScript 引擎执行 JavaScript 代码时，发生了错误，导致程序停止运行</p>
+                    </li>
+                    <li>异常抛出:
+                        <p>当异常产生，并且将这个异常生成一个错误信息</p>
+                    </li>
+                    <li>异常捕获:
+                        <pre>try{
+    发生异常的代码块;
+}catch(err){
+    错误的信息处理;
+}</pre>
+                    </li>
+                </ol>
+                <hr/>
+                <h2>实例</h2>
+                <div style="position: relative;">
+                        <pre class="code">&lt;script&gt;
+    function demo() {
+        try{
+            var e = document.getElementById("txt").value;
+            if(e==""){
+                throw "空异常";
+            }
+        }catch (err){
+            alert(err);
+        }
+    }
+&lt;/script&gt;
+&lt;form&gt;
+    &lt;input title="用户名" id="txt" type="text"&gt;
+    &lt;input id="bt" type="button" onclick="demo()" value="确认"/&gt;
+&lt;/form&gt;</pre>
+                    <div style="position: absolute;right:50px;top:50px;">
+                        <script>
+                            function demo() {
+                                try {
+                                    var e = document.getElementById("txt").value;
+                                    if (e == "") {
+                                        throw "空异常";
+                                    }
+                                } catch (err) {
+                                    alert(err);
+                                }
+                            }
+                        </script>
+                        <form>
+                            <input title="用户名" id="txt" type="text">
+                            <input id="bt" type="button" onclick="demo()" value="确认"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+	</body>
+</html>

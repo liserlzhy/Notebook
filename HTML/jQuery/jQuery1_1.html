@@ -1,0 +1,159 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../CSS/A.css"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="../../IMAGE/logo.png"/>
+        </div>
+        <div id="nav">
+            <ul id="menu">
+                <li>
+                    <a href="../Unity3d/Unity1_1.html">Unity3d</a>
+                </li>
+                <li>
+                    <a href="../Arduino/Arduino1_1.html">Arduino</a>
+                </li>
+                <li>
+                    <a href="../HTML/Html1_1.html">HTML</a>
+                </li>
+                <li>
+                    <a href="../CSS/CSS1_1.html">CSS</a>
+                </li>
+                <li>
+                    <a href="../JavaScript/JavaScript1_1.html">JavaScript</a>
+                </li>
+                <li class="nav_current">
+                    <a href="../jQuery/jQuery1_1.html">jQuery</a>
+                </li>
+                <li>
+                    <a href="../SQL/SQL1_1.html">SQL</a>
+                </li>
+                <li>
+                    <a href="../DOS/DOS.html">DOS</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="catalog">
+                <h2>jQuery</h2>
+                <ul>
+                    <li class="current">
+                        <a href="jQuery1_1.html">jQuery 选择器和事件</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_2.html">jQuery HTML</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_3.html">jQuery AJAX</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_4.html">jQuery 扩展</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_5.html">jQuery CSS</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_6.html">jQuery 遍历</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_7.html">水平和垂直菜单实例</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_8.html">jQuery UI</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_9.html">jQuery Mobile</a>
+                    </li>
+                    <li>
+                        <a href="jQuery1_10.html">jQuery Mobile 事件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h1>JQuery</h1>
+                <hr/>
+                <h2>认识 jQuery</h2>
+                1、jQuery:
+                <p>jQuery 库可以通过一行简单的标记被添加到网页中。</p>
+                2、什么是 jQuery:
+                <p>jQuery 是一个 JavaScript 函数库。</p>
+                3、jQuery 库包含的功能:
+                <p>HTML 元素选取</p>
+                <p>HTML 元素操作</p>
+                <p>CSS操作</p>
+                <p>HTML 事件函数</p>
+                <p>JavaScript 特效和动画</p>
+                <p>HTML DOM 遍历和修改</p>
+                <p>AJAX</p>
+                <p>Utilities</p>
+                <hr/>
+                <h2>jQuery 语法</h2>
+                1、jQuery 语法:
+                <p>基础语法: $(selector).action()</p>
+                <p>美元符号定义 jQuery</p>
+                <p>选择符 (selector) “查询”和“查找” HTML 元素</p>
+                <p>jQuery 的 action() 执行对元素的操作</p>
+                <p>例如:</p>
+                <p> ——$(this).hide() - 隐藏当前元素</p>
+                2、文档加载完成后执行:
+                <p>$(document).ready(function(){});</p>
+                <hr/>
+                <h2>JQuery 事件</h2>
+                <p>常用事件: click()，dblclick()，mouseenter()，mouseleave()</p>
+                绑定事件和解除绑定:
+                <p>jquery1.4 及之前的版本，由.click() 或 bind()方法绑定的事件，不能适用脚本创建的新元素：即是说页面加载完成后，再动态创建的DOM元素并不能响应之前绑定的事件！</p>
+                <p>.on()则是最新的1.9版本整合了之前的三种方式的新事件绑定机制（在Jquery1.7中添加，相应off()也添加）</p>
+                <pre>$(document).ready(function(){
+    $("#Btn").on("click",clickFun);<span class="h_annotation">//绑定事件</span>
+    $("#Btn").off("click",clickFun);<span class="h_annotation">//解除事件</span>
+});
+function clickFun(){
+    console.log("clickButton");
+}</pre>
+                <h3>阻止冒泡:</h3>
+                <pre class="code"> &lt;script&gt;
+    $(document).ready(function () {
+        $("div").on("click",testdiv);
+        $("button").on("click",testbtn1);
+        $("button").on("click",testbtn2);
+    });
+    function testdiv(e) {
+        console.log(e);
+    }
+    function testbtn1(e) {
+        console.log(e);
+    }
+    function testbtn2(e) {
+        console.log(e);
+        e.stopPropagation();<span class="h_annotation">//阻止父级冒泡</span>
+        <span class="h_annotation">//e.stopImmediatePropagation();//阻止全部冒泡</span>
+    }
+&lt;/script&gt;
+&lt;div style="width:50px;height:50px;background-color:blue;"&gt;
+    &lt;button&gt;按钮&lt;/button&gt;
+&lt;/div&gt;</pre>
+                <h3>自定义事件</h3>
+                <pre class="code">&lt;script&gt;
+    $(document).ready(function () {
+        var clickBtn = $("#clickBtn");
+        clickBtn.click(function () {
+            var e = jQuery.Event("myEvent");
+            clickBtn.trigger(e);
+        });
+        clickBtn.bind("myEvent",function (e) {
+            console.log(e);
+        });
+    });
+&lt;/script&gt;
+&lt;button id="clickBtn"&gt;按钮&lt;/button&gt;</pre>
+            </div>
+        </div>
+    </div>
+            <div id="footer">
+			</div>
+		</div>
+	</body>
+</html>
